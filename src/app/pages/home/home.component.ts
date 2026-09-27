@@ -5,6 +5,7 @@ import { SkillsComponent } from '../../sections/skills/skills.component';
 import { ProjectsComponent } from '../../sections/projects/projects.component';
 import { TestimonialsComponent } from '../../sections/testimonials/testimonials.component';
 import { ContactComponent } from '../../sections/contact/contact.component';
+import { RevealDirective } from '../../core/reveal/reveal.directive';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ import { ContactComponent } from '../../sections/contact/contact.component';
     ProjectsComponent,
     TestimonialsComponent,
     ContactComponent,
+    RevealDirective,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
