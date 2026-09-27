@@ -1,19 +1,28 @@
-<header class="header">
+<header class="header" [class.header--open]="isMenuOpen()">
   <div class="container header__inner">
-    <a class="header__logo" routerLink="/" aria-label="Home">LL</a>
+    <a class="header__logo" routerLink="/" aria-label="Home" (click)="closeMenu()">LL</a>
 
     <nav class="header__nav" aria-label="Primary">
-      <a routerLink="/" fragment="about">{{ 'nav.about' | translate }}</a>
-      <a routerLink="/" fragment="skills">{{ 'nav.skills' | translate }}</a>
-      <a routerLink="/" fragment="projects">{{ 'nav.portfolio' | translate }}</a>
-      <a routerLink="/" fragment="contact">{{ 'nav.contact' | translate }}</a>
+      <a routerLink="/" fragment="about" (click)="closeMenu()">{{ 'nav.about' | translate }}</a>
+      <a routerLink="/" fragment="skills" (click)="closeMenu()">{{ 'nav.skills' | translate }}</a>
+      <a routerLink="/" fragment="projects" (click)="closeMenu()">{{ 'nav.portfolio' | translate }}</a>
+      <a routerLink="/" fragment="contact" (click)="closeMenu()">{{ 'nav.contact' | translate }}</a>
+      <button type="button" class="header__lang header__lang--mobile" (click)="toggleLanguage()">
+        {{ 'nav.lang' | translate }}
+      </button>
     </nav>
 
     <div class="header__right">
-      <button type="button" class="header__lang" (click)="toggleLanguage()">
+      <button type="button" class="header__lang header__lang--desktop" (click)="toggleLanguage()">
         {{ 'nav.lang' | translate }}
       </button>
-      <button type="button" class="header__menu" aria-label="Open menu">
+      <button
+        type="button"
+        class="header__menu"
+        [attr.aria-expanded]="isMenuOpen()"
+        aria-label="Open menu"
+        (click)="toggleMenu()"
+      >
         <span></span>
         <span></span>
         <span></span>

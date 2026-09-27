@@ -24,14 +24,44 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  transition: opacity var(--transition-fast);
+}
+
+.header__logo:hover {
+  opacity: 0.8;
 }
 
 .header__nav {
-  display: none;
-  justify-content: center;
-  gap: 1.75rem;
-  font-size: 0.95rem;
+  position: fixed;
+  inset: var(--header-height) 0 auto 0;
+  display: grid;
+  gap: 0.25rem;
+  padding: 1rem 1.5rem 1.5rem;
+  background: rgba(14, 14, 14, 0.98);
+  border-bottom: 1px solid #2a2a2a;
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.header--open .header__nav {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.header__nav a,
+.header__lang {
+  color: inherit;
   font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.header__nav a {
+  padding: 0.85rem 0;
+  font-size: 1.05rem;
+  border-bottom: 1px solid #2a2a2a;
 }
 
 .header__nav a:hover,
@@ -47,8 +77,17 @@
 }
 
 .header__lang {
-  color: inherit;
   font-weight: 700;
+}
+
+.header__lang--mobile {
+  justify-self: start;
+  margin-top: 0.5rem;
+  padding: 0.85rem 0;
+}
+
+.header__lang--desktop {
+  display: none;
 }
 
 .header__menu {
@@ -62,14 +101,47 @@
   display: block;
   height: 2px;
   background: #fff;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.header--open .header__menu span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.header--open .header__menu span:nth-child(2) {
+  opacity: 0;
+}
+
+.header--open .header__menu span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
 }
 
 @media (min-width: 900px) {
   .header__nav {
+    position: static;
     display: flex;
+    justify-content: center;
+    gap: 1.75rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
   }
 
+  .header__nav a {
+    padding: 0;
+    font-size: 0.95rem;
+    border-bottom: none;
+  }
+
+  .header__lang--mobile,
   .header__menu {
     display: none;
+  }
+
+  .header__lang--desktop {
+    display: inline-flex;
   }
 }
