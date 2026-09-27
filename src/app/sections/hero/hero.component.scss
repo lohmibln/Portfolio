@@ -89,4 +89,13 @@
     font-weight: 700;
     letter-spacing: 0.04em;
   }
+
+  .hero__social a {
+    transition: color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .hero__social a:hover {
+    color: var(--color-accent-blue);
+    transform: translateX(2px);
+  }
 }

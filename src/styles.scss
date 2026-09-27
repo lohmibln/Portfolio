@@ -71,6 +71,14 @@ section {
   border: 1px solid currentColor;
   border-radius: 999px;
   font-weight: 600;
+  transition: color var(--transition-fast), background-color var(--transition-fast),
+    border-color var(--transition-fast), opacity var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  opacity: 0.9;
 }
 
 .btn:disabled {
@@ -84,10 +92,18 @@ section {
   border-color: rgba(255, 255, 255, 0.85);
 }
 
+.btn--ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .btn--dark {
   color: var(--color-text-light);
   background: #000;
   border-color: #fff;
+}
+
+.btn--dark:hover:not(:disabled) {
+  background: #1a1a1a;
 }
 
 .field-error {
@@ -156,4 +172,15 @@ section {
 .underline-stroke--yellow {
   background: var(--color-accent-yellow);
   transform: rotate(-3deg);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
 }
