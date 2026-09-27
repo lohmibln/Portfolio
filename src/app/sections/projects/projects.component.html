@@ -16,6 +16,24 @@
         <span class="featured__badge">{{ 'projects.featured' | translate }}</span>
         <h3>{{ featured.nameKey | translate }}</h3>
         <p>{{ featured.descriptionKey | translate }}</p>
+        <div class="project-actions">
+          <a
+            class="btn btn--dark"
+            [href]="featured.githubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ 'projects.github' | translate }}
+          </a>
+          <a
+            class="btn btn--dark"
+            [href]="featured.liveUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ 'projects.live' | translate }}
+          </a>
+        </div>
       </div>
     </article>
 
@@ -27,6 +45,24 @@
           </a>
           <h3>{{ project.nameKey | translate }}</h3>
           <p>{{ project.descriptionKey | translate }}</p>
+          <div class="project-actions">
+            <a
+              class="btn btn--dark"
+              [href]="project.githubUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ 'projects.github' | translate }}
+            </a>
+            <a
+              class="btn btn--dark"
+              [href]="project.liveUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ 'projects.live' | translate }}
+            </a>
+          </div>
         </article>
       }
     </div>
