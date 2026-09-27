@@ -1,0 +1,23 @@
+<header class="header">
+  <div class="container header__inner">
+    <a class="header__logo" routerLink="/" aria-label="Home">LL</a>
+
+    <nav class="header__nav" aria-label="Primary">
+      <a routerLink="/" fragment="about">{{ 'nav.about' | translate }}</a>
+      <a routerLink="/" fragment="skills">{{ 'nav.skills' | translate }}</a>
+      <a routerLink="/" fragment="projects">{{ 'nav.portfolio' | translate }}</a>
+      <a routerLink="/" fragment="contact">{{ 'nav.contact' | translate }}</a>
+    </nav>
+
+    <div class="header__right">
+      <button type="button" class="header__lang" (click)="toggleLanguage()">
+        {{ 'nav.lang' | translate }}
+      </button>
+      <button type="button" class="header__menu" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>

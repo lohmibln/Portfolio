@@ -1,0 +1,37 @@
+<section class="detail">
+  <div class="detail__top container">
+    <h1>{{ project.nameKey | translate }}</h1>
+    <span class="underline-stroke underline-stroke--blue" aria-hidden="true"></span>
+
+    <h2>{{ 'projectDetail.description' | translate }}</h2>
+    <p>{{ 'projectDetail.body' | translate }}</p>
+
+    <h2>{{ 'projectDetail.implementation' | translate }}</h2>
+    <p>{{ 'projectDetail.body' | translate }}</p>
+
+    <p><strong>{{ 'projectDetail.duration' | translate }}</strong></p>
+    <p class="detail__stack">{{ project.stack.join(' · ') }}</p>
+  </div>
+
+  <div class="detail__edge" aria-hidden="true"></div>
+
+  <div class="detail__bottom">
+    <div class="container">
+      <div class="detail__preview visual-placeholder">Project screenshot</div>
+
+      <div class="detail__actions">
+        <a class="btn btn--dark" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+          {{ 'projects.github' | translate }}
+        </a>
+        <a class="btn btn--dark" href="https://example.com/" target="_blank" rel="noopener noreferrer">
+          {{ 'projects.live' | translate }}
+        </a>
+      </div>
+
+      <div class="detail__nav">
+        <a routerLink="/">← {{ 'projectDetail.back' | translate }}</a>
+        <a [routerLink]="['/project', 'dabubble']">{{ 'projectDetail.next' | translate }} →</a>
+      </div>
+    </div>
+  </div>
+</section>

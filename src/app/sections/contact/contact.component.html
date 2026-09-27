@@ -1,0 +1,84 @@
+<section class="contact" id="contact">
+  <div class="torn-edge torn-edge--top-dark" aria-hidden="true"></div>
+
+  <div class="container contact__inner">
+    <div class="contact__intro">
+      <h2 class="section-title">{{ 'contact.title' | translate }}</h2>
+      <p class="section-text">{{ 'contact.text' | translate }}</p>
+      <div class="contact__arrow" aria-hidden="true">➝</div>
+    </div>
+
+    <form class="contact__form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <label>
+        <span>{{ 'contact.name' | translate }}</span>
+        <input
+          type="text"
+          formControlName="name"
+          autocomplete="name"
+          (blur)="markTouched('name')"
+        />
+        <p class="field-error">
+          @if (isInvalid('name')) {
+            {{ 'contact.errorName' | translate }}
+          }
+        </p>
+      </label>
+
+      <label>
+        <span>{{ 'contact.email' | translate }}</span>
+        <input
+          type="email"
+          formControlName="email"
+          autocomplete="email"
+          (blur)="markTouched('email')"
+        />
+        <p class="field-error">
+          @if (isInvalid('email')) {
+            {{ 'contact.errorEmail' | translate }}
+          }
+        </p>
+      </label>
+
+      <label>
+        <span>{{ 'contact.message' | translate }}</span>
+        <textarea
+          rows="4"
+          formControlName="message"
+          (blur)="markTouched('message')"
+        ></textarea>
+        <p class="field-error">
+          @if (isInvalid('message')) {
+            {{ 'contact.errorMessage' | translate }}
+          }
+        </p>
+      </label>
+
+      <label class="contact__privacy">
+        <input
+          type="checkbox"
+          formControlName="privacy"
+          (blur)="markTouched('privacy')"
+        />
+        <span>
+          {{ 'contact.privacy' | translate }}
+          <a routerLink="/privacy">{{ 'footer.privacy' | translate }}</a>
+        </span>
+      </label>
+      <p class="field-error">
+        @if (isInvalid('privacy')) {
+          {{ 'contact.errorPrivacy' | translate }}
+        }
+      </p>
+
+      <button class="btn btn--ghost" type="submit" [disabled]="form.invalid">
+        {{ 'contact.send' | translate }}
+      </button>
+
+      @if (submitted) {
+        <p class="contact__success">{{ 'contact.success' | translate }}</p>
+      }
+
+      <div class="contact__seal" aria-hidden="true">LL</div>
+    </form>
+  </div>
+</section>

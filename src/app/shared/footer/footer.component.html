@@ -1,0 +1,19 @@
+<footer class="footer">
+  <div class="container footer__inner">
+    <a class="footer__logo" routerLink="/">LL</a>
+
+    <nav class="footer__nav" aria-label="Footer">
+      <a routerLink="/" fragment="about">{{ 'nav.about' | translate }}</a>
+      <a routerLink="/" fragment="skills">{{ 'nav.skills' | translate }}</a>
+      <a routerLink="/" fragment="projects">{{ 'nav.portfolio' | translate }}</a>
+      <a routerLink="/" fragment="contact">{{ 'nav.contact' | translate }}</a>
+      <a routerLink="/impressum">{{ 'footer.impressum' | translate }}</a>
+      <a routerLink="/privacy">{{ 'footer.privacy' | translate }}</a>
+    </nav>
+
+    <div class="footer__meta">
+      <p>{{ 'footer.copy' | translate }} {{ year }}</p>
+      <a class="footer__top" href="#top">{{ 'footer.toTop' | translate }}</a>
+    </div>
+  </div>
+</footer>

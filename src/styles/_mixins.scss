@@ -1,0 +1,27 @@
+@mixin container {
+  width: min(100%, var(--max-width));
+  margin-inline: auto;
+  padding-inline: var(--section-pad-x);
+}
+
+@mixin section-padding {
+  padding-block: var(--section-pad-y);
+}
+
+@mixin button-reset {
+  appearance: none;
+  border: none;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  transition: color var(--transition-fast), background-color var(--transition-fast),
+    border-color var(--transition-fast), opacity var(--transition-fast);
+}
+
+@mixin input-reset {
+  appearance: none;
+  border: none;
+  outline: none;
+  font: inherit;
+  width: 100%;
+}

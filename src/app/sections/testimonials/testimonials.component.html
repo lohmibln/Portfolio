@@ -1,0 +1,17 @@
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <h2 class="section-title testimonials__title">
+      {{ 'testimonials.title' | translate }}
+    </h2>
+
+    <div class="testimonials__list">
+      @for (quote of quotes; track quote) {
+        <article class="quote-card">
+          <p>{{ quote | translate }}</p>
+          <strong>{{ 'testimonials.name' | translate }}</strong>
+          <span>{{ 'testimonials.role' | translate }}</span>
+        </article>
+      }
+    </div>
+  </div>
+</section>
