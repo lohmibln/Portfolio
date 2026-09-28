@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
-import { TranslatePipe } from '../../core/translation/translate.pipe';
+import { Component, inject } from '@angular/core';
+import { TranslationService } from '../../core/translation/translation.service';
 
 @Component({
   selector: 'app-impressum',
-  imports: [TranslatePipe],
+  imports: [],
   templateUrl: './impressum.component.html',
   styleUrl: './impressum.component.scss',
 })
-export class ImpressumComponent {}
+export class ImpressumComponent {
+  private readonly translationService = inject(TranslationService);
+
+  readonly language = this.translationService.language;
+}
