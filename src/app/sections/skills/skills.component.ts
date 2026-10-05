@@ -8,6 +8,8 @@ import { TranslatePipe } from '../../core/translation/translate.pipe';
   styleUrl: './skills.component.scss',
 })
 export class SkillsComponent {
+  peeled = false;
+
   readonly skills = [
     'HTML',
     'CSS',
@@ -25,5 +27,9 @@ export class SkillsComponent {
 
   isColored(skill: string): boolean {
     return this.coloredSkills.includes(skill);
+  }
+
+  togglePeel(): void {
+    this.peeled = !this.peeled;
   }
 }

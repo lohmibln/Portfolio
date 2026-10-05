@@ -5,10 +5,13 @@
         <span>{{ 'skills.title' | translate }}</span>
       </h2>
       <p class="skills__intro">{{ 'skills.intro' | translate }}</p>
-      <p class="skills__hint">{{ 'skills.peelHint' | translate }}</p>
+      <button type="button" class="skills__hint" [class.skills__hint--peeled]="peeled" (click)="togglePeel()">
+        <span class="skills__hint-corner" aria-hidden="true"></span>
+        {{ 'skills.peelHint' | translate }}
+      </button>
     </div>
 
-    <ul class="skills__grid">
+    <ul class="skills__grid" [class.skills__grid--revealed]="peeled">
       @for (skill of skills; track skill) {
         <li>
           <img

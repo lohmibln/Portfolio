@@ -1,9 +1,18 @@
 <section class="about" id="about">
   <div class="container about__inner">
     <div class="about__tags">
-      <span class="tag tag--yellow">{{ 'about.tag1' | translate }}</span>
-      <span class="tag tag--blue">{{ 'about.tag2' | translate }}</span>
-      <span class="tag tag--salmon">{{ 'about.tag3' | translate }}</span>
+      <span class="tag tag--yellow">
+        <span class="tag__icon" aria-hidden="true">📍</span>
+        {{ 'about.tag1' | translate }}
+      </span>
+      <span class="tag tag--blue">
+        <span class="tag__icon" aria-hidden="true">&#60;/&#62;</span>
+        {{ 'about.tag2' | translate }}
+      </span>
+      <span class="tag tag--salmon">
+        <span class="tag__icon" aria-hidden="true">✦</span>
+        {{ 'about.tag3' | translate }}
+      </span>
     </div>
 
     <div class="about__content">
