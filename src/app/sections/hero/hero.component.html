@@ -1,24 +1,33 @@
 <section class="hero" id="top">
+  <div class="hero__grain" aria-hidden="true"></div>
+
   <div class="container hero__inner">
     <div class="hero__copy">
       <span class="hero__hello">{{ 'hero.hello' | translate }}</span>
       <h1 class="hero__title">
         <span>{{ 'hero.title' | translate }}</span>
-        <span>{{ 'hero.titleAccent' | translate }}</span>
+        <span class="hero__title-accent">{{ 'hero.titleAccent' | translate }}</span>
       </h1>
-      <a class="btn btn--ghost" href="#contact">{{ 'hero.cta' | translate }}</a>
+      <a class="btn btn--ghost hero__cta" href="#contact">{{ 'hero.cta' | translate }}</a>
     </div>
 
     <figure class="hero__polaroid">
+      <span class="hero__tape" aria-hidden="true"></span>
       <div class="hero__photo visual-placeholder" aria-hidden="true">Photo</div>
       <figcaption>{{ 'hero.photoName' | translate }}</figcaption>
     </figure>
   </div>
 
   <aside class="hero__social" aria-label="Social links">
-    <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GH</a>
-    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">IN</a>
-    <a href="mailto:hello@example.com" aria-label="Email">Mail</a>
+    <a href="https://github.com/lohmibln" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05A9.3 9.3 0 0 1 12 6.84c.85 0 1.71.12 2.51.35 1.9-1.32 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .26.18.58.69.48A10.27 10.27 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.94 8.5H3.75V20h3.19V8.5ZM5.35 3.5a1.86 1.86 0 1 0 0 3.72 1.86 1.86 0 0 0 0-3.72ZM20.25 20h-3.18v-5.6c0-1.34-.02-3.06-1.86-3.06-1.87 0-2.15 1.45-2.15 2.96V20H9.88V8.5h3.05v1.57h.04c.42-.8 1.46-1.65 3-1.65 3.21 0 3.8 2.11 3.8 4.86V20Z"/></svg>
+    </a>
+    <a href="mailto:lucas.lohmann.berlin&#64;gmail.com" aria-label="Email">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></svg>
+    </a>
   </aside>
 
   <div class="torn-edge torn-edge--bottom" aria-hidden="true"></div>
