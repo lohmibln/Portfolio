@@ -18,12 +18,9 @@
 
 .featured__media {
   min-height: 16rem;
-}
-
-.featured__body {
-  display: grid;
-  gap: 0.75rem;
-  align-content: start;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
 }
 
 .featured__badge {
@@ -34,6 +31,7 @@
   color: #fff;
   font-size: 0.8rem;
   font-weight: 700;
+  box-shadow: 0 8px 18px rgba(59, 124, 255, 0.35);
 }
 
 .featured__body h3,

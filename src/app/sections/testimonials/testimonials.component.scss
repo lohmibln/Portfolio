@@ -1,4 +1,5 @@
 .testimonials {
+  position: relative;
   background: var(--color-bg-light);
   color: #1a1a1a;
   padding-block: var(--section-pad-y);
@@ -6,35 +7,65 @@
 
 .testimonials__title {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
 }
 
 .testimonials__list {
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .quote-card {
+  position: relative;
   display: grid;
   gap: 0.45rem;
-  padding: 1.35rem 1.2rem;
-  background: var(--color-accent-salmon);
-  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.08);
-  transform: rotate(-1deg);
+  padding: 1.5rem 1.3rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.18), transparent 40%),
+    var(--color-accent-salmon);
+  box-shadow: 0 12px 0 rgba(0, 0, 0, 0.08);
+  transform: rotate(-1.5deg);
+  clip-path: polygon(0 4%, 3% 0, 97% 2%, 100% 8%, 98% 96%, 92% 100%, 4% 98%, 0 90%);
+  transition: transform 160ms ease;
+}
+
+.quote-card::before {
+  content: '“';
+  position: absolute;
+  top: 0.35rem;
+  left: 0.7rem;
+  font-family: var(--font-script);
+  font-size: 2.4rem;
+  opacity: 0.35;
+  line-height: 1;
+}
+
+.quote-card:hover {
+  transform: rotate(0deg) translateY(-3px);
 }
 
 .quote-card:nth-child(2) {
-  transform: rotate(1.5deg);
-  background: #f28e75;
+  transform: rotate(1.8deg);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.18), transparent 40%),
+    #f28e75;
+}
+
+.quote-card:nth-child(2):hover {
+  transform: rotate(0deg) translateY(-3px);
 }
 
 .quote-card:nth-child(3) {
-  transform: rotate(-0.5deg);
+  transform: rotate(-0.8deg);
 }
 
 .quote-card p,
 .quote-card span {
   margin: 0;
+}
+
+.quote-card p {
+  padding-top: 1rem;
 }
 
 .quote-card span {
