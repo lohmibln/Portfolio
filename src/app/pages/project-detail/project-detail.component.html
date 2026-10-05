@@ -4,10 +4,10 @@
     <span class="underline-stroke underline-stroke--blue" aria-hidden="true"></span>
 
     <h2>{{ 'projectDetail.description' | translate }}</h2>
-    <p>{{ 'projectDetail.body' | translate }}</p>
+    <p>{{ project.descriptionKey | translate }}</p>
 
     <h2>{{ 'projectDetail.implementation' | translate }}</h2>
-    <p>{{ 'projectDetail.body' | translate }}</p>
+    <p>{{ project.descriptionKey | translate }}</p>
 
     <p><strong>{{ 'projectDetail.duration' | translate }}</strong></p>
     <p class="detail__stack">{{ project.stack.join(' · ') }}</p>
@@ -17,20 +17,43 @@
 
   <div class="detail__bottom">
     <div class="container">
-      <div class="detail__preview visual-placeholder">Project screenshot</div>
+      @if (project.comingSoon) {
+        <div class="detail__preview visual-placeholder">{{ 'projects.comingSoon' | translate }}</div>
+      } @else {
+        <div class="detail__preview visual-placeholder">{{ project.nameKey | translate }}</div>
+      }
 
       <div class="detail__actions">
-        <a class="btn btn--dark" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-          {{ 'projects.github' | translate }}
-        </a>
-        <a class="btn btn--dark" href="https://example.com/" target="_blank" rel="noopener noreferrer">
-          {{ 'projects.live' | translate }}
-        </a>
+        @if (project.githubUrl) {
+          <a
+            class="btn btn--dark"
+            [href]="project.githubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ 'projects.github' | translate }}
+          </a>
+        } @else {
+          <span class="btn btn--dark btn--disabled">{{ 'projects.github' | translate }}</span>
+        }
+
+        @if (project.liveUrl) {
+          <a
+            class="btn btn--dark"
+            [href]="project.liveUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ 'projects.live' | translate }}
+          </a>
+        } @else {
+          <span class="btn btn--dark btn--disabled">{{ 'projects.live' | translate }}</span>
+        }
       </div>
 
       <div class="detail__nav">
         <a routerLink="/">← {{ 'projectDetail.back' | translate }}</a>
-        <a [routerLink]="['/project', 'dabubble']">{{ 'projectDetail.next' | translate }} →</a>
+        <a [routerLink]="['/project', 'join']">{{ 'projectDetail.next' | translate }} →</a>
       </div>
     </div>
   </div>

@@ -12,30 +12,45 @@ import { TranslationKey } from '../../core/translation/translations';
 export class ProjectDetailComponent {
   private readonly route = inject(ActivatedRoute);
 
-  readonly projectId = this.route.snapshot.paramMap.get('id') ?? 'dabubble';
+  readonly projectId = this.route.snapshot.paramMap.get('id') ?? 'sharkie';
 
   readonly projectMap: Record<
     string,
-    { nameKey: TranslationKey; descriptionKey: TranslationKey; stack: string[] }
+    {
+      nameKey: TranslationKey;
+      descriptionKey: TranslationKey;
+      stack: string[];
+      githubUrl: string | null;
+      liveUrl: string | null;
+      comingSoon?: boolean;
+    }
   > = {
-    dabubble: {
-      nameKey: 'projects.daBubble.name',
-      descriptionKey: 'projects.daBubble.description',
+    sharkie: {
+      nameKey: 'projects.sharkie.name',
+      descriptionKey: 'projects.sharkie.description',
       stack: ['JavaScript', 'HTML', 'CSS'],
+      githubUrl: 'https://github.com/lohmibln/Sharky',
+      liveUrl: 'https://sharkie.lucas-lohmann.de',
     },
     join: {
       nameKey: 'projects.join.name',
       descriptionKey: 'projects.join.description',
       stack: ['JavaScript', 'HTML', 'CSS'],
+      githubUrl: null,
+      liveUrl: null,
+      comingSoon: true,
     },
-    'el-pollo-loco': {
-      nameKey: 'projects.pollo.name',
-      descriptionKey: 'projects.pollo.description',
-      stack: ['JavaScript', 'HTML', 'CSS'],
+    dabubble: {
+      nameKey: 'projects.daBubble.name',
+      descriptionKey: 'projects.daBubble.description',
+      stack: ['Angular', 'TypeScript', 'Firebase'],
+      githubUrl: null,
+      liveUrl: null,
+      comingSoon: true,
     },
   };
 
   get project() {
-    return this.projectMap[this.projectId] ?? this.projectMap['dabubble'];
+    return this.projectMap[this.projectId] ?? this.projectMap['sharkie'];
   }
 }

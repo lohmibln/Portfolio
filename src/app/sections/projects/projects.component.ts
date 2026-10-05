@@ -7,8 +7,9 @@ interface ProjectCard {
   id: string;
   nameKey: TranslationKey;
   descriptionKey: TranslationKey;
-  githubUrl: string;
-  liveUrl: string;
+  githubUrl: string | null;
+  liveUrl: string | null;
+  comingSoon?: boolean;
   featured?: boolean;
 }
 
@@ -20,28 +21,30 @@ interface ProjectCard {
 })
 export class ProjectsComponent {
   readonly featured: ProjectCard = {
-    id: 'join',
-    nameKey: 'projects.join.name',
-    descriptionKey: 'projects.join.description',
-    githubUrl: 'https://github.com/',
-    liveUrl: 'https://example.com/',
+    id: 'sharkie',
+    nameKey: 'projects.sharkie.name',
+    descriptionKey: 'projects.sharkie.description',
+    githubUrl: 'https://github.com/lohmibln/Sharky',
+    liveUrl: 'https://sharkie.lucas-lohmann.de',
     featured: true,
   };
 
   readonly projects: ProjectCard[] = [
     {
-      id: 'el-pollo-loco',
-      nameKey: 'projects.pollo.name',
-      descriptionKey: 'projects.pollo.description',
-      githubUrl: 'https://github.com/',
-      liveUrl: 'https://example.com/',
+      id: 'join',
+      nameKey: 'projects.join.name',
+      descriptionKey: 'projects.join.description',
+      githubUrl: null,
+      liveUrl: null,
+      comingSoon: true,
     },
     {
       id: 'dabubble',
       nameKey: 'projects.daBubble.name',
       descriptionKey: 'projects.daBubble.description',
-      githubUrl: 'https://github.com/',
-      liveUrl: 'https://example.com/',
+      githubUrl: null,
+      liveUrl: null,
+      comingSoon: true,
     },
   ];
 }

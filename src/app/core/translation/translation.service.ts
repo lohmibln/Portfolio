@@ -3,7 +3,7 @@ import { Language, TranslationKey, translations } from './translations';
 
 @Injectable({ providedIn: 'root' })
 export class TranslationService {
-  readonly language = signal<Language>('en');
+  readonly language = signal<Language>('de');
 
   translate(key: TranslationKey): string {
     return translations[this.language()][key];

@@ -10,7 +10,7 @@
 
     <article class="featured">
       <a class="featured__media visual-placeholder" [routerLink]="['/project', featured.id]">
-        {{ 'projects.featured' | translate }}
+        {{ featured.nameKey | translate }}
       </a>
       <div class="featured__body">
         <span class="featured__badge">{{ 'projects.featured' | translate }}</span>
@@ -19,7 +19,7 @@
         <div class="project-actions">
           <a
             class="btn btn--dark"
-            [href]="featured.githubUrl"
+            [href]="featured.githubUrl!"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -27,7 +27,7 @@
           </a>
           <a
             class="btn btn--dark"
-            [href]="featured.liveUrl"
+            [href]="featured.liveUrl!"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -40,28 +40,47 @@
     <div class="projects__grid">
       @for (project of projects; track project.id) {
         <article class="project-card">
-          <a class="project-card__media visual-placeholder" [routerLink]="['/project', project.id]">
-            {{ project.nameKey | translate }}
-          </a>
+          @if (project.comingSoon) {
+            <div class="project-card__media visual-placeholder project-card__media--soon">
+              {{ 'projects.comingSoon' | translate }}
+            </div>
+          } @else {
+            <a
+              class="project-card__media visual-placeholder"
+              [routerLink]="['/project', project.id]"
+            >
+              {{ project.nameKey | translate }}
+            </a>
+          }
+
           <h3>{{ project.nameKey | translate }}</h3>
           <p>{{ project.descriptionKey | translate }}</p>
           <div class="project-actions">
-            <a
-              class="btn btn--dark"
-              [href]="project.githubUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {{ 'projects.github' | translate }}
-            </a>
-            <a
-              class="btn btn--dark"
-              [href]="project.liveUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {{ 'projects.live' | translate }}
-            </a>
+            @if (project.githubUrl) {
+              <a
+                class="btn btn--dark"
+                [href]="project.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ 'projects.github' | translate }}
+              </a>
+            } @else {
+              <span class="btn btn--dark btn--disabled">{{ 'projects.github' | translate }}</span>
+            }
+
+            @if (project.liveUrl) {
+              <a
+                class="btn btn--dark"
+                [href]="project.liveUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ 'projects.live' | translate }}
+              </a>
+            } @else {
+              <span class="btn btn--dark btn--disabled">{{ 'projects.live' | translate }}</span>
+            }
           </div>
         </article>
       }
