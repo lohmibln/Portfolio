@@ -1,26 +1,54 @@
 <section class="skills" id="skills">
   <div class="container">
     <div class="skills__header">
-      <h2 class="skills__title">
-        <span>{{ 'skills.title' | translate }}</span>
-      </h2>
+      <div class="skills__heading">
+        <p class="section-eyebrow section-eyebrow--light">{{ 'skills.eyebrow' | translate }}</p>
+        <h2 class="skills__title">
+          <span>{{ 'skills.title' | translate }}</span>
+          <img
+            class="skills__oval"
+            src="/img/lines/skills-oval.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </h2>
+      </div>
+
       <p class="skills__intro">{{ 'skills.intro' | translate }}</p>
-      <button type="button" class="skills__hint" [class.skills__hint--peeled]="peeled" (click)="togglePeel()">
-        <span class="skills__hint-corner" aria-hidden="true"></span>
-        {{ 'skills.peelHint' | translate }}
+
+      <button
+        type="button"
+        class="skills__hint"
+        [class.skills__hint--peeled]="peeled"
+        [class.skills__hint--hover]="peelHover && !peeled"
+        (click)="togglePeel()"
+        (mouseenter)="onPeelHover(true)"
+        (mouseleave)="onPeelHover(false)"
+        [attr.aria-pressed]="peeled"
+        [attr.aria-label]="'skills.peelHint' | translate"
+      >
+        <img
+          class="skills__hint-img"
+          [src]="peelSrc"
+          alt=""
+          width="160"
+          height="160"
+        />
       </button>
     </div>
 
     <ul class="skills__grid" [class.skills__grid--revealed]="peeled">
       @for (skill of skills; track skill) {
         <li>
-          <img
-            class="skills__icon"
-            [class.skills__icon--grey]="!isColored(skill)"
-            [src]="'/img/' + skill + '.svg'"
-            [alt]="skill"
-          />
-          <span>{{ skill }}</span>
+          <div class="skills__tile">
+            <img
+              class="skills__icon"
+              [class.skills__icon--grey]="!isColored(skill) && !peeled"
+              [src]="'/img/' + skill + '.svg'"
+              [alt]="skill"
+            />
+          </div>
+          <span>{{ skill === 'REST API' ? 'REST-API' : skill }}</span>
         </li>
       }
     </ul>

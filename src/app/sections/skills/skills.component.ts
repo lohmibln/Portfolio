@@ -9,6 +9,7 @@ import { TranslatePipe } from '../../core/translation/translate.pipe';
 })
 export class SkillsComponent {
   peeled = false;
+  peelHover = false;
 
   readonly skills = [
     'HTML',
@@ -18,12 +19,22 @@ export class SkillsComponent {
     'Angular',
     'SupaBase',
     'Git',
-    'Scrum',
     'REST API',
+    'Scrum',
     'Material Design',
   ];
 
   readonly coloredSkills = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Angular', 'Git'];
+
+  get peelSrc(): string {
+    if (this.peeled) {
+      return '/img/stickers/peel-final.png';
+    }
+    if (this.peelHover) {
+      return '/img/stickers/peel-transition.png';
+    }
+    return '/img/stickers/peel-default.png';
+  }
 
   isColored(skill: string): boolean {
     return this.coloredSkills.includes(skill);
@@ -31,5 +42,9 @@ export class SkillsComponent {
 
   togglePeel(): void {
     this.peeled = !this.peeled;
+  }
+
+  onPeelHover(active: boolean): void {
+    this.peelHover = active;
   }
 }

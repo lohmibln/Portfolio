@@ -1,27 +1,67 @@
 <section class="about" id="about">
   <div class="container about__inner">
-    <div class="about__tags">
-      <span class="tag tag--yellow">
-        <span class="tag__icon" aria-hidden="true">📍</span>
-        {{ 'about.tag1' | translate }}
-      </span>
-      <span class="tag tag--blue">
-        <span class="tag__icon" aria-hidden="true">&#60;/&#62;</span>
-        {{ 'about.tag2' | translate }}
-      </span>
-      <span class="tag tag--salmon">
-        <span class="tag__icon" aria-hidden="true">✦</span>
-        {{ 'about.tag3' | translate }}
-      </span>
+    <div class="about__tags" aria-label="Availability">
+      <article class="tag tag--yellow">
+        <img class="tag__paper" src="/img/paper/yellow.png" alt="" aria-hidden="true" />
+        <span class="tag__inner">
+          <svg class="tag__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"
+            />
+          </svg>
+          <span>{{ 'about.tag1' | translate }}</span>
+        </span>
+      </article>
+
+      <article class="tag tag--blue">
+        <img class="tag__paper" src="/img/paper/blue.png" alt="" aria-hidden="true" />
+        <span class="tag__inner">
+          <svg class="tag__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4.5 17c3-6 5-8.2 7.5-8.2S16.5 11 19.5 17M8 8.2 6.2 4.8M16 8.2l1.8-3.4"
+            />
+            <circle cx="12" cy="9" r="1.35" fill="currentColor" />
+          </svg>
+          <span>{{ 'about.tag2' | translate }}</span>
+        </span>
+      </article>
+
+      <article class="tag tag--orange">
+        <img class="tag__paper" src="/img/paper/orange.png" alt="" aria-hidden="true" />
+        <span class="tag__inner">
+          <svg class="tag__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M3.8 20V8.8L12 3.5l8.2 5.3V20H3.8Zm2-1.8h4.4v-4H5.8v4Zm5.6 0H18v-6.2h-6.6v6.2ZM12 5.8 6.5 9.3v.5h11v-.5L12 5.8Z"
+            />
+          </svg>
+          <span>{{ 'about.tag3' | translate }}</span>
+        </span>
+      </article>
     </div>
 
     <div class="about__content">
-      <h2 class="section-title">
-        {{ 'about.title' | translate }}
-        <span class="underline-stroke underline-stroke--blue" aria-hidden="true"></span>
-      </h2>
-      <p class="section-text">{{ 'about.text' | translate }}</p>
-      <button type="button" class="btn about__more">{{ 'about.readMore' | translate }}</button>
+      <p class="about__eyebrow">{{ 'about.eyebrow' | translate }}</p>
+      <h2 class="about__title">{{ 'about.title' | translate }}</h2>
+      <img
+        class="about__underline"
+        src="/img/lines/about-underline.png"
+        alt=""
+        width="320"
+        height="40"
+        aria-hidden="true"
+      />
+      <div class="about__copy">
+        <p>{{ 'about.text' | translate }}</p>
+        <p>{{ 'about.collab' | translate }}</p>
+      </div>
+      <a class="about__more" href="#contact">{{ 'about.readMore' | translate }}</a>
     </div>
   </div>
 

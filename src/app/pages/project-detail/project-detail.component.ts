@@ -1,5 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { SectionNavService } from '../../core/section-nav.service';
 import { TranslatePipe } from '../../core/translation/translate.pipe';
 import { TranslationKey } from '../../core/translation/translations';
 
@@ -11,8 +14,14 @@ import { TranslationKey } from '../../core/translation/translations';
 })
 export class ProjectDetailComponent {
   private readonly route = inject(ActivatedRoute);
+  private readonly sectionNav = inject(SectionNavService);
 
-  readonly projectId = this.route.snapshot.paramMap.get('id') ?? 'sharkie';
+  private readonly order = ['join', 'sharkie', 'dabubble'] as const;
+
+  readonly projectId = toSignal(
+    this.route.paramMap.pipe(map((params) => params.get('id') ?? 'join')),
+    { initialValue: this.route.snapshot.paramMap.get('id') ?? 'join' }
+  );
 
   readonly projectMap: Record<
     string,
@@ -22,35 +31,57 @@ export class ProjectDetailComponent {
       stack: string[];
       githubUrl: string | null;
       liveUrl: string | null;
+      image: string;
       comingSoon?: boolean;
+      featured?: boolean;
     }
   > = {
+    join: {
+      nameKey: 'projects.join.name',
+      descriptionKey: 'projects.join.description',
+      stack: ['HTML', 'CSS', 'TypeScript', 'Angular', 'Scrum', 'Material Design'],
+      githubUrl: null,
+      liveUrl: null,
+      image: '/img/projects/join.png',
+      comingSoon: true,
+      featured: true,
+    },
     sharkie: {
       nameKey: 'projects.sharkie.name',
       descriptionKey: 'projects.sharkie.description',
       stack: ['JavaScript', 'HTML', 'CSS'],
       githubUrl: 'https://github.com/lohmibln/Sharky',
       liveUrl: 'https://sharkie.lucas-lohmann.de',
-    },
-    join: {
-      nameKey: 'projects.join.name',
-      descriptionKey: 'projects.join.description',
-      stack: ['JavaScript', 'HTML', 'CSS'],
-      githubUrl: null,
-      liveUrl: null,
-      comingSoon: true,
+      image: '/img/projects/shot-sharkie.png',
     },
     dabubble: {
       nameKey: 'projects.daBubble.name',
       descriptionKey: 'projects.daBubble.description',
-      stack: ['Angular', 'TypeScript', 'Firebase'],
+      stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
       githubUrl: null,
       liveUrl: null,
+      image: '/img/projects/shot-chat.png',
       comingSoon: true,
     },
   };
 
-  get project() {
-    return this.projectMap[this.projectId] ?? this.projectMap['sharkie'];
+  readonly project = computed(() => {
+    const id = this.projectId();
+    return this.projectMap[id] ?? this.projectMap['join'];
+  });
+
+  readonly nextId = computed(() => {
+    const id = this.projectId();
+    const index = this.order.indexOf(id as (typeof this.order)[number]);
+    return this.order[(index + 1) % this.order.length];
+  });
+
+  iconSrc(tech: string): string {
+    return `/img/${tech}.svg`;
+  }
+
+  goProjects(event: Event): void {
+    event.preventDefault();
+    this.sectionNav.go('projects');
   }
 }

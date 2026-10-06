@@ -1,5 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SectionNavService } from '../../core/section-nav.service';
 import { TranslatePipe } from '../../core/translation/translate.pipe';
 import { TranslationService } from '../../core/translation/translation.service';
 
@@ -11,7 +12,9 @@ import { TranslationService } from '../../core/translation/translation.service';
 })
 export class HeaderComponent {
   private readonly translationService = inject(TranslationService);
+  private readonly sectionNav = inject(SectionNavService);
 
+  readonly language = this.translationService.language;
   readonly isMenuOpen = signal(false);
 
   toggleLanguage(): void {
@@ -24,5 +27,11 @@ export class HeaderComponent {
 
   closeMenu(): void {
     this.isMenuOpen.set(false);
+  }
+
+  goTo(sectionId: string, event: Event): void {
+    event.preventDefault();
+    this.closeMenu();
+    this.sectionNav.go(sectionId);
   }
 }

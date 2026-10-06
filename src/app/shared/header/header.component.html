@@ -1,20 +1,48 @@
 <header class="header" [class.header--open]="isMenuOpen()">
   <div class="container header__inner">
-    <a class="header__logo" routerLink="/" aria-label="Home" (click)="closeMenu()">LL</a>
+    <a class="header__logo" routerLink="/" aria-label="Home" (click)="closeMenu()">
+      <img src="/img/logo-ll.svg" alt="" width="46" height="39" />
+    </a>
 
     <nav class="header__nav" aria-label="Primary">
-      <a routerLink="/" fragment="about" (click)="closeMenu()">{{ 'nav.about' | translate }}</a>
-      <a routerLink="/" fragment="skills" (click)="closeMenu()">{{ 'nav.skills' | translate }}</a>
-      <a routerLink="/" fragment="projects" (click)="closeMenu()">{{ 'nav.portfolio' | translate }}</a>
-      <a routerLink="/" fragment="contact" (click)="closeMenu()">{{ 'nav.contact' | translate }}</a>
-      <button type="button" class="header__lang header__lang--mobile" (click)="toggleLanguage()">
-        {{ 'nav.lang' | translate }}
-      </button>
+      <div class="header__nav-item">
+        <div class="header__nav-draw header__nav-draw--down" aria-hidden="true">
+          <img src="/img/lines/header/1.svg" alt="" width="110" height="50" />
+        </div>
+        <a href="/#about" (click)="goTo('about', $event)">{{ 'nav.about' | translate }}</a>
+      </div>
+      <div class="header__nav-item">
+        <div class="header__nav-draw header__nav-draw--across" aria-hidden="true">
+          <img src="/img/lines/header/2.svg" alt="" width="110" height="50" />
+        </div>
+        <a href="/#skills" (click)="goTo('skills', $event)">{{ 'nav.skills' | translate }}</a>
+      </div>
+      <div class="header__nav-item">
+        <div class="header__nav-draw header__nav-draw--across" aria-hidden="true">
+          <img src="/img/lines/header/4.svg" alt="" width="110" height="50" />
+        </div>
+        <a href="/#projects" (click)="goTo('projects', $event)">{{ 'nav.portfolio' | translate }}</a>
+      </div>
+      <div class="header__nav-item">
+        <div class="header__nav-draw header__nav-draw--across" aria-hidden="true">
+          <img src="/img/lines/header/3.svg" alt="" width="110" height="50" />
+        </div>
+        <a href="/#contact" (click)="goTo('contact', $event)">{{ 'nav.contact' | translate }}</a>
+      </div>
     </nav>
 
     <div class="header__right">
-      <button type="button" class="header__lang header__lang--desktop" (click)="toggleLanguage()">
-        {{ 'nav.lang' | translate }}
+      <button
+        type="button"
+        class="header__lang-switch"
+        (click)="toggleLanguage()"
+        [attr.aria-label]="'Switch language'"
+      >
+        <span [class.is-active]="language() === 'en'" [class.is-en]="language() === 'en'">EN</span>
+        <span class="header__lang-track" [class.is-de]="language() === 'de'" aria-hidden="true">
+          <span class="header__lang-knob"></span>
+        </span>
+        <span [class.is-active]="language() === 'de'">DE</span>
       </button>
       <button
         type="button"
@@ -29,4 +57,13 @@
       </button>
     </div>
   </div>
+
+  @if (isMenuOpen()) {
+    <nav class="header__mobile-nav" aria-label="Mobile">
+      <a href="/#about" (click)="goTo('about', $event)">{{ 'nav.about' | translate }}</a>
+      <a href="/#skills" (click)="goTo('skills', $event)">{{ 'nav.skills' | translate }}</a>
+      <a href="/#projects" (click)="goTo('projects', $event)">{{ 'nav.portfolio' | translate }}</a>
+      <a href="/#contact" (click)="goTo('contact', $event)">{{ 'nav.contact' | translate }}</a>
+    </nav>
+  }
 </header>

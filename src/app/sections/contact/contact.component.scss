@@ -1,15 +1,29 @@
 .contact {
   position: relative;
   background:
-    radial-gradient(circle at 15% 20%, rgba(240, 196, 63, 0.08), transparent 28%),
+    radial-gradient(circle at 12% 18%, rgba(240, 196, 63, 0.08), transparent 26%),
     var(--color-bg-dark);
   color: var(--color-text-light);
-  padding-block: calc(var(--section-pad-y) + 0.5rem) var(--section-pad-y);
+  padding-block: calc(var(--section-pad-y) + 0.75rem) var(--section-pad-y);
+  overflow: hidden;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: soft-light;
 }
 
 .contact__inner {
+  position: relative;
+  z-index: 1;
   display: grid;
-  gap: 2.5rem;
+  gap: 2.75rem;
 }
 
 .contact__intro {
@@ -19,41 +33,49 @@
 }
 
 .contact__arrow {
-  width: min(100%, 14rem);
+  width: min(100%, 15rem);
   color: var(--color-accent-yellow);
-  transform: rotate(6deg);
+  transform: rotate(8deg);
   overflow: visible;
+  margin-top: 0.5rem;
 }
 
 .contact__arrow-path {
-  stroke-dasharray: 220;
-  stroke-dashoffset: 220;
-  animation: draw-arrow 1.2s ease forwards 0.2s;
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  animation: draw-arrow 1.35s ease forwards 0.15s;
 }
 
 .contact__form {
   position: relative;
   display: grid;
   gap: 0.35rem;
+  padding-top: 1.5rem;
 }
 
 .contact__form label {
   display: grid;
-  gap: 0.45rem;
+  gap: 0.4rem;
 }
 
 .contact__form label > span {
   font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .contact__form input,
 .contact__form textarea {
-  padding: 0.7rem 0;
+  padding: 0.65rem 0;
   background: transparent;
   color: #fff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  border-bottom: 2px solid #c9a227;
   border-radius: 0;
-  transition: border-color var(--transition-fast);
+  transition: border-color 120ms ease;
+}
+
+.contact__form input::placeholder,
+.contact__form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .contact__form input:focus,
@@ -71,18 +93,36 @@
   grid-template-columns: auto 1fr;
   align-items: start;
   gap: 0.65rem;
-  margin-top: 0.75rem;
+  margin-top: 0.85rem;
 }
 
 .contact__privacy input {
   width: auto;
   margin-top: 0.2rem;
+  accent-color: var(--color-accent-blue);
   border-bottom: none;
 }
 
 .contact__privacy a {
   color: var(--color-accent-blue);
   text-decoration: underline;
+}
+
+.contact__send {
+  margin-top: 1rem;
+  justify-self: start;
+  min-width: 7.5rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  transition: background-color 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+
+.contact__send:hover:not(:disabled) {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+  transform: translateY(-1px);
 }
 
 .contact__success {
@@ -92,22 +132,26 @@
 
 .contact__seal {
   position: absolute;
+  top: -0.5rem;
   right: 0;
-  bottom: -1.5rem;
   display: grid;
   place-items: center;
-  width: 4.8rem;
-  height: 4.8rem;
+  width: 6.25rem;
+  height: 6.25rem;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 35% 30%, #e08a55, #c56a3d 55%, #9e4d2c 100%);
-  color: #fff;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+    radial-gradient(circle at 35% 30%, #f0a06a, #d97845 55%, #b4532a 100%);
   box-shadow:
-    inset 0 0 0 4px rgba(255, 255, 255, 0.15),
-    0 10px 20px rgba(0, 0, 0, 0.35);
-  animation: seal-spin 12s linear infinite;
+    inset 0 0 0 5px rgba(255, 255, 255, 0.12),
+    0 12px 28px rgba(0, 0, 0, 0.35);
+  animation: seal-spin 14s linear infinite;
+}
+
+.contact__seal-mark {
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  color: #1a1a1a;
 }
 
 @keyframes draw-arrow {
@@ -129,5 +173,6 @@
   .contact__inner {
     grid-template-columns: 1fr 1fr;
     align-items: start;
+    gap: 4rem;
   }
 }

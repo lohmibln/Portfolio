@@ -1,15 +1,54 @@
 <section class="testimonials" id="testimonials">
-  <div class="container">
-    <h2 class="section-title testimonials__title">
-      {{ 'testimonials.title' | translate }}
-    </h2>
+  <div class="container testimonials__inner">
+    <div class="testimonials__header">
+      <div class="testimonials__intro">
+        <img
+          class="testimonials__arrow"
+          src="/img/lines/testimonials-arrow.png"
+          alt=""
+          width="150"
+          height="40"
+          aria-hidden="true"
+        />
+        <p class="testimonials__eyebrow">{{ 'testimonials.eyebrow' | translate }}</p>
+      </div>
+      <h2 class="testimonials__title">{{ 'testimonials.title' | translate }}</h2>
+    </div>
 
-    <div class="testimonials__list">
-      @for (quote of quotes; track quote) {
-        <article class="quote-card">
-          <p>{{ quote | translate }}</p>
-          <strong>{{ 'testimonials.name' | translate }}</strong>
-          <span>{{ 'testimonials.role' | translate }}</span>
+    <div class="testimonials__fan" role="list">
+      @for (item of items; track item.quoteKey; let i = $index) {
+        <article
+          class="quote-card"
+          role="listitem"
+          [class.quote-card--a]="i !== 1"
+          [class.quote-card--b]="i === 1"
+          [class.is-left]="i === 0"
+          [class.is-mid]="i === 1"
+          [class.is-right]="i === 2"
+        >
+          <p class="quote-card__text">{{ item.quoteKey | translate }}</p>
+          <a
+            class="quote-card__link"
+            [href]="item.linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="quote-card__meta">
+              <div class="quote-card__name">
+                <strong>{{ i + 1 }}. {{ item.name }}</strong>
+                <span>{{ item.role }}</span>
+              </div>
+              <div class="quote-card__profile">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M15.55 0.81 3.05 1.68A3.05 3.05 0 0 0 .51 4.6L1.39 17.1a3.05 3.05 0 0 0 2.92 2.54l12.5-.87a3.05 3.05 0 0 0 2.54-2.92L18.47 3.35A3.05 3.05 0 0 0 15.55.81ZM8.36 17.54l-2.3.16-.52-7.41 2.3-.16.52 7.41Zm-.49-9.62a1.7 1.7 0 1 1 .12-3.4 1.7 1.7 0 0 1-.12 3.4Zm8.3 9.04-2.3.16V11.5c0-.9-.3-1.52-1.12-1.52-.61 0-1 .41-1.16.8-.06.15-.08.35-.08.56v5.62l-2.3.16V9.2h2.21v1.05h.03c.31-.58 1.06-1.2 2.18-1.2 2.33 0 2.76 1.53 2.76 3.52v5.39Z"
+                  />
+                </svg>
+                Profile
+              </div>
+            </div>
+          </a>
         </article>
       }
     </div>

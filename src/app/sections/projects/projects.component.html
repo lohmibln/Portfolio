@@ -1,77 +1,47 @@
 <section class="projects" id="projects">
-  <div class="container">
+  <div class="container projects__grid">
     <div class="projects__intro">
-      <h2 class="section-title">
-        {{ 'projects.title' | translate }}
-        <span class="underline-stroke underline-stroke--yellow" aria-hidden="true"></span>
-      </h2>
-      <p class="section-text">{{ 'projects.intro' | translate }}</p>
+      <p class="section-eyebrow">{{ 'projects.eyebrow' | translate }}</p>
+      <h2 class="projects__title">{{ 'projects.title' | translate }}</h2>
+      <div class="projects__underline-wrap" aria-hidden="true">
+        <img
+          class="projects__underline"
+          src="/img/lines/portfolio-underline.png"
+          alt=""
+          width="260"
+          height="48"
+        />
+      </div>
+      <p class="projects__intro-text">{{ 'projects.intro' | translate }}</p>
     </div>
 
-    <article class="featured">
-      <a class="featured__media visual-placeholder" [routerLink]="['/project', featured.id]">
-        {{ featured.nameKey | translate }}
-      </a>
-      <div class="featured__body">
-        <span class="featured__badge">{{ 'projects.featured' | translate }}</span>
-        <h3>{{ featured.nameKey | translate }}</h3>
-        <p>{{ featured.descriptionKey | translate }}</p>
-        <div class="project-actions">
-          <a
-            class="btn btn--dark"
-            [href]="featured.githubUrl!"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ 'projects.github' | translate }}
-          </a>
-          <a
-            class="btn btn--dark"
-            [href]="featured.liveUrl!"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ 'projects.live' | translate }}
-          </a>
-        </div>
-      </div>
-    </article>
+    @for (project of allProjects; track project.id; let i = $index) {
+      <article class="project" [class.project--featured]="project.featured">
+        @if (project.featured) {
+          <div class="project__seal" aria-hidden="true">
+            <img src="/img/stickers/featured-project.png" alt="" width="120" height="120" />
+          </div>
+        }
 
-    <div class="projects__grid">
-      @for (project of projects; track project.id) {
-        <article class="project-card">
+        <div class="project__visual">
+          <img
+            class="project__img"
+            [class.project__img--float]="project.float"
+            [src]="project.image"
+            [alt]="project.nameKey | translate"
+            width="560"
+            height="400"
+            [attr.loading]="i === 0 ? null : 'lazy'"
+          />
+
           @if (project.comingSoon) {
-            <div class="project-card__media visual-placeholder project-card__media--soon">
-              {{ 'projects.comingSoon' | translate }}
-            </div>
-          } @else {
-            <a
-              class="project-card__media visual-placeholder"
-              [routerLink]="['/project', project.id]"
-            >
-              {{ project.nameKey | translate }}
-            </a>
+            <span class="project__soon">{{ 'projects.comingSoon' | translate }}</span>
           }
 
-          <h3>{{ project.nameKey | translate }}</h3>
-          <p>{{ project.descriptionKey | translate }}</p>
-          <div class="project-actions">
-            @if (project.githubUrl) {
-              <a
-                class="btn btn--dark"
-                [href]="project.githubUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {{ 'projects.github' | translate }}
-              </a>
-            } @else {
-              <span class="btn btn--dark btn--disabled">{{ 'projects.github' | translate }}</span>
-            }
-
+          <div class="project__cta">
             @if (project.liveUrl) {
               <a
-                class="btn btn--dark"
+                class="project__btn project__btn--live"
                 [href]="project.liveUrl"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -79,11 +49,20 @@
                 {{ 'projects.live' | translate }}
               </a>
             } @else {
-              <span class="btn btn--dark btn--disabled">{{ 'projects.live' | translate }}</span>
+              <span class="project__btn project__btn--live project__btn--disabled">
+                {{ 'projects.live' | translate }}
+              </span>
             }
+
+            <a class="project__btn project__btn--details" [routerLink]="['/project', project.id]">
+              {{ 'projects.details' | translate }}
+            </a>
           </div>
-        </article>
-      }
-    </div>
+        </div>
+
+        <h3>{{ project.nameKey | translate }}</h3>
+        <p>{{ project.descriptionKey | translate }}</p>
+      </article>
+    }
   </div>
 </section>

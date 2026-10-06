@@ -3,22 +3,23 @@
 
   <div class="container contact__inner">
     <div class="contact__intro">
+      <p class="section-eyebrow section-eyebrow--light">{{ 'contact.eyebrow' | translate }}</p>
       <h2 class="section-title">{{ 'contact.title' | translate }}</h2>
       <p class="section-text">{{ 'contact.text' | translate }}</p>
-      <svg class="contact__arrow" viewBox="0 0 220 60" aria-hidden="true">
+      <svg class="contact__arrow" viewBox="0 0 220 70" aria-hidden="true">
         <path
           class="contact__arrow-path"
-          d="M8 32 C60 8, 120 52, 175 24"
+          d="M10 38 C55 6, 120 62, 178 28"
           fill="none"
           stroke="currentColor"
-          stroke-width="4"
+          stroke-width="5"
           stroke-linecap="round"
         />
         <path
-          d="M162 14 L178 24 L160 34"
+          d="M160 16 L182 28 L158 40"
           fill="none"
           stroke="currentColor"
-          stroke-width="4"
+          stroke-width="5"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
@@ -26,11 +27,16 @@
     </div>
 
     <form class="contact__form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <div class="contact__seal" aria-hidden="true">
+        <span class="contact__seal-mark">LL</span>
+      </div>
+
       <label>
         <span>{{ 'contact.name' | translate }}</span>
         <input
           type="text"
           formControlName="name"
+          [placeholder]="'contact.namePlaceholder' | translate"
           autocomplete="name"
           (blur)="markTouched('name')"
         />
@@ -46,6 +52,7 @@
         <input
           type="email"
           formControlName="email"
+          [placeholder]="'contact.emailPlaceholder' | translate"
           autocomplete="email"
           (blur)="markTouched('email')"
         />
@@ -59,8 +66,9 @@
       <label>
         <span>{{ 'contact.message' | translate }}</span>
         <textarea
-          rows="4"
+          rows="3"
           formControlName="message"
+          [placeholder]="'contact.messagePlaceholder' | translate"
           (blur)="markTouched('message')"
         ></textarea>
         <p class="field-error">
@@ -87,15 +95,13 @@
         }
       </p>
 
-      <button class="btn btn--ghost" type="submit" [disabled]="form.invalid">
+      <button class="btn contact__send" type="submit" [disabled]="form.invalid">
         {{ 'contact.send' | translate }}
       </button>
 
       @if (submitted) {
         <p class="contact__success">{{ 'contact.success' | translate }}</p>
       }
-
-      <div class="contact__seal" aria-hidden="true">LL</div>
     </form>
   </div>
 </section>

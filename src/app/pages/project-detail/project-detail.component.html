@@ -1,59 +1,93 @@
 <section class="detail">
-  <div class="detail__top container">
-    <h1>{{ project.nameKey | translate }}</h1>
-    <span class="underline-stroke underline-stroke--blue" aria-hidden="true"></span>
+  <div class="detail__inner">
+    <a class="detail__back" href="/#projects" (click)="goProjects($event)">
+      <img src="/img/lines/breadcrumb-arrow.png" alt="" width="24" height="24" aria-hidden="true" />
+      {{ 'projectDetail.back' | translate }}
+    </a>
 
-    <h2>{{ 'projectDetail.description' | translate }}</h2>
-    <p>{{ project.descriptionKey | translate }}</p>
+    <div class="detail__row">
+      <div class="detail__text">
+        <div class="detail__title-wrap">
+          <h1>{{ project().nameKey | translate }}</h1>
+          <div class="detail__underline-wrap" aria-hidden="true">
+            <img src="/img/lines/about-underline.png" alt="" width="150" height="32" />
+          </div>
+        </div>
 
-    <h2>{{ 'projectDetail.implementation' | translate }}</h2>
-    <p>{{ project.descriptionKey | translate }}</p>
+        <div class="detail__block">
+          <h2>{{ 'projectDetail.description' | translate }}</h2>
+          <p>{{ project().descriptionKey | translate }}</p>
+        </div>
 
-    <p><strong>{{ 'projectDetail.duration' | translate }}</strong></p>
-    <p class="detail__stack">{{ project.stack.join(' · ') }}</p>
-  </div>
+        <div class="detail__block">
+          <h2>{{ 'projectDetail.implementation' | translate }}</h2>
+          <p>{{ 'projectDetail.body' | translate }}</p>
+        </div>
 
-  <div class="detail__edge" aria-hidden="true"></div>
+        <p class="detail__duration">
+          <strong>{{ 'projectDetail.duration' | translate }}</strong>
+        </p>
 
-  <div class="detail__bottom">
-    <div class="container">
-      @if (project.comingSoon) {
-        <div class="detail__preview visual-placeholder">{{ 'projects.comingSoon' | translate }}</div>
-      } @else {
-        <div class="detail__preview visual-placeholder">{{ project.nameKey | translate }}</div>
-      }
-
-      <div class="detail__actions">
-        @if (project.githubUrl) {
-          <a
-            class="btn btn--dark"
-            [href]="project.githubUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ 'projects.github' | translate }}
-          </a>
-        } @else {
-          <span class="btn btn--dark btn--disabled">{{ 'projects.github' | translate }}</span>
-        }
-
-        @if (project.liveUrl) {
-          <a
-            class="btn btn--dark"
-            [href]="project.liveUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ 'projects.live' | translate }}
-          </a>
-        } @else {
-          <span class="btn btn--dark btn--disabled">{{ 'projects.live' | translate }}</span>
-        }
+        <ul class="detail__stack" aria-label="Tech stack">
+          @for (tech of project().stack; track tech) {
+            <li>
+              <img [src]="iconSrc(tech)" [alt]="tech" width="24" height="24" />
+              <span>{{ tech }}</span>
+            </li>
+          }
+        </ul>
       </div>
 
-      <div class="detail__nav">
-        <a routerLink="/">← {{ 'projectDetail.back' | translate }}</a>
-        <a [routerLink]="['/project', 'join']">{{ 'projectDetail.next' | translate }} →</a>
+      <div class="detail__media">
+        <div class="detail__preview">
+          @if (project().featured) {
+            <div class="detail__seal" aria-hidden="true">
+              <img src="/img/stickers/featured-project.png" alt="" width="120" height="120" />
+            </div>
+          }
+          <img
+            class="detail__image"
+            [src]="project().image"
+            [alt]="project().nameKey | translate"
+            width="560"
+            height="400"
+          />
+        </div>
+
+        <div class="detail__actions">
+          @if (project().githubUrl) {
+            <a
+              class="detail__btn"
+              [href]="project().githubUrl!"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ 'projects.github' | translate }}
+            </a>
+          } @else {
+            <span class="detail__btn detail__btn--disabled">{{ 'projects.github' | translate }}</span>
+          }
+
+          @if (project().liveUrl) {
+            <a
+              class="detail__btn detail__btn--live"
+              [href]="project().liveUrl!"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ 'projects.live' | translate }}
+            </a>
+          } @else {
+            <span class="detail__btn detail__btn--live detail__btn--disabled">
+              {{ 'projects.live' | translate }}
+            </span>
+          }
+        </div>
+
+        <a class="detail__next" [routerLink]="['/project', nextId()]">
+          {{ 'projectDetail.next' | translate }}
+          <img src="/img/lines/breadcrumb-arrow-next.png" alt="" width="24" height="24" aria-hidden="true" />
+        </a>
       </div>
     </div>
   </div>
