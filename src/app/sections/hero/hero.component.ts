@@ -29,4 +29,12 @@ export class HeroComponent {
   isLit(line: 'title' | 'accent', index: number): boolean {
     return this.litKey() === `${line}:${index}`;
   }
+
+  /** Marco-style: flip case on hover (a→A / A→a), same font */
+  displayLetter(letter: string, line: 'title' | 'accent', index: number): string {
+    if (!this.isLit(line, index) || !/[A-Za-zÄÖÜäöüß]/.test(letter)) {
+      return letter;
+    }
+    return letter === letter.toUpperCase() ? letter.toLowerCase() : letter.toUpperCase();
+  }
 }

@@ -141,25 +141,15 @@
 
 .hero__letter {
   display: inline-block;
-  font-family: var(--font-sans);
+  font-family: inherit;
   font-weight: 800;
   color: #f8f9fa;
   cursor: default;
-  transition:
-    color 125ms ease-in-out,
-    font-family 125ms ease-in-out,
-    font-size 125ms ease-in-out,
-    font-weight 125ms ease-in-out,
-    transform 125ms ease-in-out;
+  transition: color 125ms ease-in-out;
 }
 
 .hero__letter--lit {
   color: #f7c518;
-  font-family: 'Caveat', cursive;
-  font-weight: 700;
-  font-size: 1.12em;
-  text-transform: lowercase;
-  transform: translateY(0.04em);
 }
 
 .hero__title-top {
