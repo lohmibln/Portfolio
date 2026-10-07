@@ -80,6 +80,10 @@
   background-image: url('/img/textures/testimonial-b.png');
 }
 
+.quote-card--c {
+  background-image: url('/img/textures/testimonial-c.png');
+}
+
 .quote-card:hover::after {
   content: '';
   position: absolute;

@@ -39,6 +39,21 @@
           }
 
           <div class="project__cta">
+            @if (project.githubUrl) {
+              <a
+                class="project__btn"
+                [href]="project.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ 'projects.github' | translate }}
+              </a>
+            } @else {
+              <span class="project__btn project__btn--disabled">
+                {{ 'projects.github' | translate }}
+              </span>
+            }
+
             @if (project.liveUrl) {
               <a
                 class="project__btn project__btn--live"

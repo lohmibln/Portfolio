@@ -20,8 +20,9 @@
         <article
           class="quote-card"
           role="listitem"
-          [class.quote-card--a]="i !== 1"
+          [class.quote-card--a]="i === 0"
           [class.quote-card--b]="i === 1"
+          [class.quote-card--c]="i === 2"
           [class.is-left]="i === 0"
           [class.is-mid]="i === 1"
           [class.is-right]="i === 2"

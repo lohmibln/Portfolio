@@ -1,6 +1,26 @@
-# Portfolio (Day 2 barebone – Figma Design 3 / Karl)
+# Lucas Lohmann — Portfolio
 
-Angular + TypeScript + SCSS starter aligned to the Design 3 composition from Figma (logo: **LL**).
+Personal portfolio for Lucas Lohmann (Fachinformatiker für Anwendungsentwicklung).  
+Built with **Angular 19**, TypeScript, and SCSS. Design based on Figma Design 3.
+
+**Live:** [https://lucas-lohmann.de](https://lucas-lohmann.de)
+
+## Features
+
+- Responsive Design 3 layout (hero, about, skills, projects, testimonials, contact)
+- German / English language toggle
+- Project detail pages with live and GitHub links
+- Contact form with validation and PHP mail endpoint
+- Impressum and privacy policy pages
+- Custom LL favicon and HTTPS on a personal domain
+
+## Projects featured
+
+| Project | Live | GitHub |
+| ------- | ---- | ------ |
+| Sharkie | [sharkie.lucas-lohmann.de](https://sharkie.lucas-lohmann.de) | [lohmibln/Sharky](https://github.com/lohmibln/Sharky) |
+| Pokédex | [pokedex.lucas-lohmann.de](https://pokedex.lucas-lohmann.de) | [lohmibln/Pokedex](https://github.com/lohmibln/Pokedex) |
+| Join | Coming soon | Coming soon |
 
 ## Run locally
 
@@ -9,14 +29,20 @@ npm install
 npm start
 ```
 
-Open `http://localhost:4200/`.
+Open [http://localhost:4200](http://localhost:4200).
 
-## Day-2 scope
+```bash
+npm run build
+```
 
-- Layout matching Design 3 sections: hero (Hello + Polaroid "Karl"), about tags, skill set, projects, colleagues' thoughts, contact
-- Logo **LL**, torn-edge stubs, DE/EN toggle, lorem ipsum body text
-- Routes: `/`, `/impressum`, `/privacy`, `/project/:id`
+Production output: `dist/portfolio/browser/`.
 
-## Still deferred
+## Contact mail
 
-Pixel-perfect Figma assets, real photos, pull-to-peel / carousel animations, mail backend, mobile menu behavior.
+`public/sendMail.php` handles the contact form POST. On the VPS it is served by nginx + PHP-FPM and sends mail via Postfix (Gmail SMTP relay).
+
+## Stack
+
+- Angular 19
+- TypeScript / SCSS
+- nginx, PHP (contact), Postfix on [lucas-lohmann.de](https://lucas-lohmann.de)
