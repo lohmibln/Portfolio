@@ -75,7 +75,7 @@ export const translations = {
     'contact.eyebrow': 'CONTACT ME',
     'contact.title': 'Ready to work together?',
     'contact.text':
-      'Got a project in mind, a question, or just want to say hi? Send me a message — I usually reply within a day or two.',
+      "Contact me through this form — I'm interested in hearing from you, learning about your ideas, and contributing to your projects. Feel free to share your project details. I'd love the chance to help build a website that fits your needs.",
     'contact.name': "What's your name?",
     'contact.namePlaceholder': 'Your name goes here',
     'contact.email': "What's your email?",
@@ -175,7 +175,7 @@ export const translations = {
     'contact.eyebrow': 'KONTAKT',
     'contact.title': 'Bereit zusammenzuarbeiten?',
     'contact.text':
-      'Du hast ein Projekt im Kopf, eine Frage oder willst einfach Hallo sagen? Schreib mir — ich antworte in der Regel innerhalb von ein bis zwei Tagen.',
+      'Schreib mir über dieses Formular — ich freue mich darauf, von dir zu hören, deine Ideen kennenzulernen und zu deinen Projekten beizutragen. Schick mir gerne deine Projektdetails. Ich helfe dir gern, eine Website zu gestalten, die zu deinen Anforderungen passt.',
     'contact.name': 'Wie heißt du?',
     'contact.namePlaceholder': 'Dein Name hier',
     'contact.email': 'Wie lautet deine E-Mail?',
