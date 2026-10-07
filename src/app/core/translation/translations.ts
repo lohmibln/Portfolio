@@ -175,7 +175,7 @@ export const translations = {
     'contact.eyebrow': 'KONTAKT',
     'contact.title': 'Bereit zusammenzuarbeiten?',
     'contact.text':
-      'Schreib mir über dieses Formular — ich freue mich darauf, von dir zu hören, deine Ideen kennenzulernen und zu deinen Projekten beizutragen. Schick mir gerne deine Projektdetails. Ich helfe dir gern, eine Website zu gestalten, die zu deinen Anforderungen passt.',
+      'Schreib mir über dieses Formular — ich freue mich darauf, von dir zu hören, deine Ideen kennenzulernen und zu deinen Projekten beizutragen. Schick mir gerne deine Projektdetails. Ich helfe dir gern, deine Projekte zu verwirklichen.',
     'contact.name': 'Wie heißt du?',
     'contact.namePlaceholder': 'Dein Name hier',
     'contact.email': 'Wie lautet deine E-Mail?',
