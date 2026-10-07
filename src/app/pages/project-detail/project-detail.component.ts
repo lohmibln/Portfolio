@@ -16,11 +16,11 @@ export class ProjectDetailComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly sectionNav = inject(SectionNavService);
 
-  private readonly order = ['join', 'sharkie', 'dabubble'] as const;
+  private readonly order = ['sharkie', 'pokedex', 'join'] as const;
 
   readonly projectId = toSignal(
-    this.route.paramMap.pipe(map((params) => params.get('id') ?? 'join')),
-    { initialValue: this.route.snapshot.paramMap.get('id') ?? 'join' }
+    this.route.paramMap.pipe(map((params) => params.get('id') ?? 'sharkie')),
+    { initialValue: this.route.snapshot.paramMap.get('id') ?? 'sharkie' }
   );
 
   readonly projectMap: Record<
@@ -28,6 +28,8 @@ export class ProjectDetailComponent {
     {
       nameKey: TranslationKey;
       descriptionKey: TranslationKey;
+      implementationKey: TranslationKey;
+      durationKey: TranslationKey;
       stack: string[];
       githubUrl: string | null;
       liveUrl: string | null;
@@ -36,38 +38,43 @@ export class ProjectDetailComponent {
       featured?: boolean;
     }
   > = {
-    join: {
-      nameKey: 'projects.join.name',
-      descriptionKey: 'projects.join.description',
-      stack: ['HTML', 'CSS', 'TypeScript', 'Angular', 'Scrum', 'Material Design'],
-      githubUrl: null,
-      liveUrl: null,
-      image: '/img/projects/join.png',
-      comingSoon: true,
-      featured: true,
-    },
     sharkie: {
       nameKey: 'projects.sharkie.name',
       descriptionKey: 'projects.sharkie.description',
+      implementationKey: 'projects.sharkie.implementation',
+      durationKey: 'projects.sharkie.duration',
       stack: ['JavaScript', 'HTML', 'CSS'],
       githubUrl: 'https://github.com/lohmibln/Sharky',
       liveUrl: 'https://sharkie.lucas-lohmann.de',
       image: '/img/projects/shot-sharkie.png',
+      featured: true,
     },
-    dabubble: {
-      nameKey: 'projects.daBubble.name',
-      descriptionKey: 'projects.daBubble.description',
-      stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
+    pokedex: {
+      nameKey: 'projects.pokedex.name',
+      descriptionKey: 'projects.pokedex.description',
+      implementationKey: 'projects.pokedex.implementation',
+      durationKey: 'projects.pokedex.duration',
+      stack: ['JavaScript', 'HTML', 'CSS'],
+      githubUrl: 'https://github.com/lohmibln/Pokedex',
+      liveUrl: 'https://pokedex.lucas-lohmann.de',
+      image: '/img/projects/shot-pokedex.png',
+    },
+    join: {
+      nameKey: 'projects.join.name',
+      descriptionKey: 'projects.join.description',
+      implementationKey: 'projects.join.implementation',
+      durationKey: 'projects.join.duration',
+      stack: ['HTML', 'CSS', 'TypeScript', 'Angular', 'Scrum', 'Material Design'],
       githubUrl: null,
       liveUrl: null,
-      image: '/img/projects/shot-chat.png',
+      image: '/img/projects/join.png',
       comingSoon: true,
     },
   };
 
   readonly project = computed(() => {
     const id = this.projectId();
-    return this.projectMap[id] ?? this.projectMap['join'];
+    return this.projectMap[id] ?? this.projectMap['sharkie'];
   });
 
   readonly nextId = computed(() => {

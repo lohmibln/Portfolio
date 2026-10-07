@@ -8,6 +8,9 @@ import { TranslatePipe } from '../../core/translation/translate.pipe';
   styleUrl: './skills.component.scss',
 })
 export class SkillsComponent {
+  /** Flip to true when peel / “interested in” content is ready */
+  readonly peelEnabled = false;
+
   peeled = false;
   peelHover = false;
 
@@ -24,7 +27,8 @@ export class SkillsComponent {
     'Material Design',
   ];
 
-  readonly coloredSkills = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Angular', 'Git'];
+  /** Learned / active skills stay colored; others stay grey until peel is enabled later */
+  readonly coloredSkills = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Angular', 'Git', 'REST API'];
 
   get peelSrc(): string {
     if (this.peeled) {
@@ -37,14 +41,20 @@ export class SkillsComponent {
   }
 
   isColored(skill: string): boolean {
-    return this.coloredSkills.includes(skill);
+    return this.coloredSkills.includes(skill) || this.peeled;
   }
 
   togglePeel(): void {
+    if (!this.peelEnabled) {
+      return;
+    }
     this.peeled = !this.peeled;
   }
 
   onPeelHover(active: boolean): void {
+    if (!this.peelEnabled) {
+      return;
+    }
     this.peelHover = active;
   }
 }

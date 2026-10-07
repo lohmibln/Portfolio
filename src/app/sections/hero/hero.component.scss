@@ -231,13 +231,13 @@
   transition: background-color 120ms ease, color 120ms ease;
 }
 
-/* Design 3 sticker offset outline behind CTA */
+/* Design 3 sticker offset — solid white fill between the lines */
 .hero__cta::after {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  border: 2.5px solid #fff;
+  background: #fff;
   transform: translate(5px, 5px);
   pointer-events: none;
   z-index: -1;

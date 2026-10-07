@@ -22,19 +22,8 @@ interface ProjectCard {
   styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent {
-  /** Order matches Design 3 grid: featured Join, then Sharkie, DABubble */
+  /** Order: featured Sharkie, then Pokedex, Join */
   readonly allProjects: ProjectCard[] = [
-    {
-      id: 'join',
-      nameKey: 'projects.join.name',
-      descriptionKey: 'projects.join.description',
-      image: '/img/projects/join.png',
-      githubUrl: null,
-      liveUrl: null,
-      comingSoon: true,
-      featured: true,
-      float: true,
-    },
     {
       id: 'sharkie',
       nameKey: 'projects.sharkie.name',
@@ -42,12 +31,22 @@ export class ProjectsComponent {
       image: '/img/projects/shot-sharkie.png',
       githubUrl: 'https://github.com/lohmibln/Sharky',
       liveUrl: 'https://sharkie.lucas-lohmann.de',
+      featured: true,
+      float: true,
     },
     {
-      id: 'dabubble',
-      nameKey: 'projects.daBubble.name',
-      descriptionKey: 'projects.daBubble.description',
-      image: '/img/projects/shot-chat.png',
+      id: 'pokedex',
+      nameKey: 'projects.pokedex.name',
+      descriptionKey: 'projects.pokedex.description',
+      image: '/img/projects/shot-pokedex.png',
+      githubUrl: 'https://github.com/lohmibln/Pokedex',
+      liveUrl: 'https://pokedex.lucas-lohmann.de',
+    },
+    {
+      id: 'join',
+      nameKey: 'projects.join.name',
+      descriptionKey: 'projects.join.description',
+      image: '/img/projects/join.png',
       githubUrl: null,
       liveUrl: null,
       comingSoon: true,

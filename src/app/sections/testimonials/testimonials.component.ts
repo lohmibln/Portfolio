@@ -5,8 +5,7 @@ import { TranslationKey } from '../../core/translation/translations';
 interface TestimonialItem {
   quoteKey: TranslationKey;
   name: string;
-  role: string;
-  linkedin: string;
+  roleKey: TranslationKey;
 }
 
 @Component({
@@ -20,20 +19,17 @@ export class TestimonialsComponent {
     {
       quoteKey: 'testimonials.quote1',
       name: 'Tobias Lange',
-      role: 'Frontend Developer',
-      linkedin: 'https://www.linkedin.com/',
+      roleKey: 'testimonials.role1',
     },
     {
       quoteKey: 'testimonials.quote2',
-      name: 'Maya Richter',
-      role: 'Project Partner',
-      linkedin: 'https://www.linkedin.com/',
+      name: 'Peter Koban',
+      roleKey: 'testimonials.role2',
     },
     {
       quoteKey: 'testimonials.quote3',
       name: 'Jonas Keller',
-      role: 'Scrum Master',
-      linkedin: 'https://www.linkedin.com/',
+      roleKey: 'testimonials.role3',
     },
   ];
 }

@@ -27,28 +27,12 @@
           [class.is-right]="i === 2"
         >
           <p class="quote-card__text">{{ item.quoteKey | translate }}</p>
-          <a
-            class="quote-card__link"
-            [href]="item.linkedin"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="quote-card__meta">
-              <div class="quote-card__name">
-                <strong>{{ i + 1 }}. {{ item.name }}</strong>
-                <span>{{ item.role }}</span>
-              </div>
-              <div class="quote-card__profile">
-                <svg viewBox="0 0 20 20" aria-hidden="true">
-                  <path
-                    fill="currentColor"
-                    d="M15.55 0.81 3.05 1.68A3.05 3.05 0 0 0 .51 4.6L1.39 17.1a3.05 3.05 0 0 0 2.92 2.54l12.5-.87a3.05 3.05 0 0 0 2.54-2.92L18.47 3.35A3.05 3.05 0 0 0 15.55.81ZM8.36 17.54l-2.3.16-.52-7.41 2.3-.16.52 7.41Zm-.49-9.62a1.7 1.7 0 1 1 .12-3.4 1.7 1.7 0 0 1-.12 3.4Zm8.3 9.04-2.3.16V11.5c0-.9-.3-1.52-1.12-1.52-.61 0-1 .41-1.16.8-.06.15-.08.35-.08.56v5.62l-2.3.16V9.2h2.21v1.05h.03c.31-.58 1.06-1.2 2.18-1.2 2.33 0 2.76 1.53 2.76 3.52v5.39Z"
-                  />
-                </svg>
-                Profile
-              </div>
+          <div class="quote-card__meta">
+            <div class="quote-card__name">
+              <strong>{{ i + 1 }}. {{ item.name }}</strong>
+              <span>{{ item.roleKey | translate }}</span>
             </div>
-          </a>
+          </div>
         </article>
       }
     </div>

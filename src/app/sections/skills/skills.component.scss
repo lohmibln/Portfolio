@@ -122,7 +122,8 @@
   filter: grayscale(1) brightness(1.35);
 }
 
-.skills__grid--revealed .skills__icon {
+/* Only clear greyscale when peel reveal is active — do not override .skills__icon--grey otherwise */
+.skills__grid--revealed .skills__icon:not(.skills__icon--grey) {
   filter: none;
   transform: scale(1.04);
 }

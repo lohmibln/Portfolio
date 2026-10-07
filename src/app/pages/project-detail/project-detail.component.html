@@ -21,11 +21,11 @@
 
         <div class="detail__block">
           <h2>{{ 'projectDetail.implementation' | translate }}</h2>
-          <p>{{ 'projectDetail.body' | translate }}</p>
+          <p>{{ project().implementationKey | translate }}</p>
         </div>
 
         <p class="detail__duration">
-          <strong>{{ 'projectDetail.duration' | translate }}</strong>
+          <strong>{{ project().durationKey | translate }}</strong>
         </p>
 
         <ul class="detail__stack" aria-label="Tech stack">

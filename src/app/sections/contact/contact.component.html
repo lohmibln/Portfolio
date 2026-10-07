@@ -95,12 +95,15 @@
         }
       </p>
 
-      <button class="btn contact__send" type="submit" [disabled]="form.invalid">
+      <button class="btn contact__send" type="submit" [disabled]="form.invalid || sending">
         {{ 'contact.send' | translate }}
       </button>
 
       @if (submitted) {
         <p class="contact__success">{{ 'contact.success' | translate }}</p>
+      }
+      @if (sendError) {
+        <p class="contact__error">{{ 'contact.sendError' | translate }}</p>
       }
     </form>
   </div>

@@ -1,13 +1,7 @@
 export type Language = 'en' | 'de';
 
-const loremShort =
-  'A short introduction of my skills. Highlighting my experience of using different front-end technologies and emphasise my openness to learning and adapting to new technologies. ';
-
 const loremMedium =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
-
-const loremLong =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.';
 
 export const translations = {
   en: {
@@ -30,17 +24,18 @@ export const translations = {
     'about.tag2': 'Open to relocate',
     'about.tag3': 'Open to work remote',
     'about.text':
-      "Hey there, I'm Lucas — a Fachinformatiker for Anwendungsentwicklung. I care about clean front-end craft, learning from every challenge, and building interfaces that feel intentional.",
+      "Hey there, I'm Lucas, a Fachinformatiker for Anwendungsentwicklung. I care about clean front-end craft, learning from every challenge, and building interfaces that feel intentional.",
     'about.collab': "Let's collaborate and build something remarkable together!",
     'about.readMore': "Let's talk",
     'skills.eyebrow': 'MY STACK',
     'skills.title': 'Skill set',
-    'skills.intro': loremShort,
+    'skills.intro':
+      'A short introduction of my skills, highlighting my experience with different front-end technologies and my openness to learning and adapting to new ones.',
     'skills.peelHint': 'Pull to peel',
     'projects.eyebrow': 'MY CRAFT',
     'projects.title': 'Projects',
     'projects.intro':
-      'Below you will find some of my already completed projects. The list is constantly growing — checking back regularly is worth it!',
+      'Below you will find some of my already completed projects. The list is constantly growing, so checking back regularly is worth it!',
     'projects.github': 'GitHub',
     'projects.live': 'Live test',
     'projects.details': 'Project details',
@@ -50,12 +45,21 @@ export const translations = {
     'projects.sharkie.name': 'Sharkie',
     'projects.sharkie.description':
       'Jump-and-run underwater adventure. Collect coins and potions to help Sharkie defeat the evil shark.',
+    'projects.sharkie.implementation':
+      'Built as a class-based HTML5 Canvas game in vanilla JavaScript. Movable objects, enemies, and the world share a clear inheritance chain. A World class runs the game loop, collisions, and rendering; levels place enemies and collectibles. Includes parallax backgrounds, health bars, coin pickups, sound management, desktop keyboard plus mobile touch controls, and win/lose screens with restart. No frameworks or build step.',
+    'projects.sharkie.duration': 'Duration: 4 weeks',
+    'projects.pokedex.name': 'Pokédex',
+    'projects.pokedex.description':
+      'Interactive Pokédex for the first Pokémon generation. Search 151 entries, browse type-colored cards, and open detail dialogs with stats from the PokéAPI.',
+    'projects.pokedex.implementation':
+      'A vanilla JavaScript front end connected to the PokéAPI. Pokémon load in pages of 20 (up to the first 151), detail requests run in parallel, and results are cached for search. Type colors drive the card UI; opening a card shows a dialog with base stats. Search filters the loaded set, and Load More advances the offset until the generation is complete.',
+    'projects.pokedex.duration': 'Duration: 2 weeks',
     'projects.join.name': 'Join',
     'projects.join.description':
       'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop, assign users and categories.',
-    'projects.daBubble.name': 'DABubble',
-    'projects.daBubble.description':
-      'A Slack clone with an intuitive interface, real-time messaging, and clear channel organization.',
+    'projects.join.implementation':
+      'An Angular and TypeScript task board built around Kanban workflows. After authentication, users manage tasks and contacts, then move cards between statuses with drag and drop. The interface follows Material Design patterns and was planned in a Scrum team setting.',
+    'projects.join.duration': 'Duration: 5 weeks',
     'testimonials.title': "Colleagues' Thoughts",
     'testimonials.titleLine1': "Colleagues'",
     'testimonials.titleLine2': 'Thoughts',
@@ -63,11 +67,14 @@ export const translations = {
     'testimonials.quote1':
       'Lucas really kept the team together with his great organization and clear communication. We wouldn’t have got this far without his commitment.',
     'testimonials.quote2':
-      'Working with Lucas was smooth from day one — clean code, thoughtful feedback, and a calm focus when things got messy.',
+      'I found Lucas to be a very dedicated and attentive participant. I was particularly impressed by his eagerness to learn, his active participation, and his interest in not just skimming the surface of the material, but truly delving into it. Lucas asks specific and well-thought-out questions and implements feedback very quickly and constructively. Even when dealing with more challenging topics, he remains focused and works his way through new material independently. Working with him is always pleasant, respectful, and straightforward.',
     'testimonials.quote3':
       'He turns vague ideas into interfaces that feel intentional. Reliable, curious, and always ready to learn.',
     'testimonials.name': 'Name Lastname',
     'testimonials.role': 'Position',
+    'testimonials.role1': 'Frontend Developer',
+    'testimonials.role2': 'Teacher',
+    'testimonials.role3': 'Scrum Master',
     'contact.eyebrow': 'CONTACT ME',
     'contact.title': 'Ready to work together?',
     'contact.text': loremMedium,
@@ -79,11 +86,12 @@ export const translations = {
     'contact.messagePlaceholder': 'Hello Lucas, I would like to...',
     'contact.privacy': 'I have read and agree to the privacy policy.',
     'contact.send': 'Send',
-    'contact.success': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    'contact.errorName': 'Lorem ipsum dolor sit amet.',
-    'contact.errorEmail': 'Lorem ipsum dolor sit amet.',
-    'contact.errorMessage': 'Lorem ipsum dolor sit amet.',
-    'contact.errorPrivacy': 'Lorem ipsum dolor sit amet.',
+    'contact.success': "Thanks for your message. I'll get back to you as soon as possible.",
+    'contact.sendError': 'Something went wrong sending your message. Please try again or email me directly.',
+    'contact.errorName': 'Please enter your name.',
+    'contact.errorEmail': 'Please enter a valid email address.',
+    'contact.errorMessage': 'Please enter a message (at least 10 characters).',
+    'contact.errorPrivacy': 'Please accept the privacy policy.',
     'footer.copy': 'LL © Portfolio',
     'footer.privacy': 'Privacy Policy',
     'footer.impressum': 'Imprint',
@@ -94,8 +102,6 @@ export const translations = {
     'projectDetail.next': 'Next Project',
     'projectDetail.description': 'Description',
     'projectDetail.implementation': 'Implementation Details',
-    'projectDetail.duration': 'Duration: 4 weeks',
-    'projectDetail.body': loremLong,
   },
   de: {
     'nav.about': 'About me',
@@ -117,12 +123,13 @@ export const translations = {
     'about.tag2': 'Open to relocate',
     'about.tag3': 'Open to work remote',
     'about.text':
-      'Hey, ich bin Lucas — Fachinformatiker für Anwendungsentwicklung. Mir liegen saubere Front-end-Arbeit, Lernen aus jeder Herausforderung und Interfaces, die bewusst wirken, am Herzen.',
+      'Hey, ich bin Lucas, Fachinformatiker für Anwendungsentwicklung. Mir liegen saubere Front-end-Arbeit, Lernen aus jeder Herausforderung und Interfaces, die bewusst wirken, am Herzen.',
     'about.collab': "Let's collaborate and build something remarkable together!",
     'about.readMore': "Let's talk",
     'skills.eyebrow': 'MY STACK',
     'skills.title': 'Skill set',
-    'skills.intro': loremShort,
+    'skills.intro':
+      'Eine kurze Einführung in meine Skills: Erfahrung mit verschiedenen Front-end-Technologien und die Offenheit, Neues zu lernen und mich anzupassen.',
     'skills.peelHint': 'Pull to peel',
     'projects.eyebrow': 'MY CRAFT',
     'projects.title': 'Projekte',
@@ -137,12 +144,21 @@ export const translations = {
     'projects.sharkie.name': 'Sharkie',
     'projects.sharkie.description':
       'Jump-and-run unter Wasser. Sammle Coins und Tränke, um mit Sharkie den bösen Hai zu besiegen.',
+    'projects.sharkie.implementation':
+      'Als klassenbasiertes HTML5-Canvas-Spiel in Vanilla JavaScript umgesetzt. Bewegliche Objekte, Gegner und die Welt folgen einer klaren Vererbungskette. Die World-Klasse steuert Game-Loop, Kollisionen und Rendering; Levels legen Gegner und Collectibles fest. Dazu kommen Parallax-Hintergründe, Lebensbalken, Coin-Sammlung, Sound-Management, Tastatur- und Touch-Steuerung sowie Win-/Lose-Screens mit Neustart. Ohne Framework und ohne Build-Step.',
+    'projects.sharkie.duration': 'Dauer: 4 Wochen',
+    'projects.pokedex.name': 'Pokédex',
+    'projects.pokedex.description':
+      'Interaktiver Pokédex der ersten Pokémon-Generation. 151 Einträge durchsuchen, Typ-Karten browsen und Detail-Dialoge mit Stats aus der PokéAPI öffnen.',
+    'projects.pokedex.implementation':
+      'Vanilla-JavaScript-Frontend an die PokéAPI angebunden. Pokémon werden in Seiten à 20 geladen (bis 151), Detail-Requests laufen parallel und werden für die Suche gecacht. Typ-Farben steuern die Karten-UI; ein Klick öffnet einen Dialog mit Basis-Stats. Die Suche filtert den geladenen Stand, Load More erhöht den Offset, bis die Generation voll ist.',
+    'projects.pokedex.duration': 'Dauer: 2 Wochen',
     'projects.join.name': 'Join',
     'projects.join.description':
       'Task-Manager nach dem Kanban-System. Aufgaben per Drag & Drop organisieren, Nutzer und Kategorien zuweisen.',
-    'projects.daBubble.name': 'DABubble',
-    'projects.daBubble.description':
-      'Slack-Clone mit intuitivem Interface, Echtzeit-Nachrichten und klarer Channel-Organisation.',
+    'projects.join.implementation':
+      'Angular-/TypeScript-Taskboard rund um Kanban-Workflows. Nach der Authentifizierung lassen sich Aufgaben und Kontakte verwalten und per Drag & Drop zwischen Status-Spalten verschieben. Die Oberfläche folgt Material-Design-Mustern und entstand im Team mit Scrum.',
+    'projects.join.duration': 'Dauer: 5 Wochen',
     'testimonials.title': "Colleagues' Thoughts",
     'testimonials.titleLine1': "Colleagues'",
     'testimonials.titleLine2': 'Thoughts',
@@ -150,11 +166,14 @@ export const translations = {
     'testimonials.quote1':
       'Lucas hat das Team mit klarer Organisation und Kommunikation zusammengehalten. Ohne seinen Einsatz wären wir nicht so weit gekommen.',
     'testimonials.quote2':
-      'Mit Lucas zu arbeiten war von Anfang an unkompliziert — sauberer Code, gutes Feedback und Ruhe, wenn’s hektisch wurde.',
+      'Ich habe Lucas als sehr engagierten und aufmerksamen Teilnehmer erlebt. Besonders positiv aufgefallen sind mir seine hohe Lernbereitschaft, seine aktive Mitarbeit und sein Interesse daran, die Inhalte nicht nur oberflächlich zu verstehen, sondern wirklich zu durchdringen. Lucas stellt gezielte und durchdachte Fragen und setzt Feedback sehr schnell und konstruktiv um. Auch bei anspruchsvolleren Themen bleibt er konzentriert und arbeitet sich eigenständig in neue Inhalte ein. Dabei ist die Zusammenarbeit mit ihm stets angenehm, respektvoll und unkompliziert.',
     'testimonials.quote3':
       'Er macht aus vagen Ideen Interfaces, die bewusst wirken. Zuverlässig, neugierig und immer bereit dazuzulernen.',
     'testimonials.name': 'Name Lastname',
     'testimonials.role': 'Position',
+    'testimonials.role1': 'Frontend Developer',
+    'testimonials.role2': 'Dozent',
+    'testimonials.role3': 'Scrum Master',
     'contact.eyebrow': 'CONTACT ME',
     'contact.title': 'Ready to work together?',
     'contact.text': loremMedium,
@@ -166,11 +185,12 @@ export const translations = {
     'contact.messagePlaceholder': 'Hallo Lucas, ich würde gerne...',
     'contact.privacy': 'I have read and agree to the privacy policy.',
     'contact.send': 'Send',
-    'contact.success': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    'contact.errorName': 'Lorem ipsum dolor sit amet.',
-    'contact.errorEmail': 'Lorem ipsum dolor sit amet.',
-    'contact.errorMessage': 'Lorem ipsum dolor sit amet.',
-    'contact.errorPrivacy': 'Lorem ipsum dolor sit amet.',
+    'contact.success': 'Danke für deine Nachricht. Ich melde mich so schnell wie möglich.',
+    'contact.sendError': 'Beim Senden ist etwas schiefgelaufen. Bitte versuche es erneut oder schreib mir direkt per E-Mail.',
+    'contact.errorName': 'Bitte gib deinen Namen ein.',
+    'contact.errorEmail': 'Bitte gib eine gültige E-Mail-Adresse ein.',
+    'contact.errorMessage': 'Bitte gib eine Nachricht ein (mindestens 10 Zeichen).',
+    'contact.errorPrivacy': 'Bitte akzeptiere die Datenschutzerklärung.',
     'footer.copy': 'LL © Portfolio',
     'footer.privacy': 'Datenschutz',
     'footer.impressum': 'Impressum',
@@ -181,8 +201,6 @@ export const translations = {
     'projectDetail.next': 'Next Project',
     'projectDetail.description': 'Description',
     'projectDetail.implementation': 'Implementation Details',
-    'projectDetail.duration': 'Duration: 4 weeks',
-    'projectDetail.body': loremLong,
   },
 } as const;
 

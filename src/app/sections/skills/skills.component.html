@@ -16,34 +16,36 @@
 
       <p class="skills__intro">{{ 'skills.intro' | translate }}</p>
 
-      <button
-        type="button"
-        class="skills__hint"
-        [class.skills__hint--peeled]="peeled"
-        [class.skills__hint--hover]="peelHover && !peeled"
-        (click)="togglePeel()"
-        (mouseenter)="onPeelHover(true)"
-        (mouseleave)="onPeelHover(false)"
-        [attr.aria-pressed]="peeled"
-        [attr.aria-label]="'skills.peelHint' | translate"
-      >
-        <img
-          class="skills__hint-img"
-          [src]="peelSrc"
-          alt=""
-          width="160"
-          height="160"
-        />
-      </button>
+      @if (peelEnabled) {
+        <button
+          type="button"
+          class="skills__hint"
+          [class.skills__hint--peeled]="peeled"
+          [class.skills__hint--hover]="peelHover && !peeled"
+          (click)="togglePeel()"
+          (mouseenter)="onPeelHover(true)"
+          (mouseleave)="onPeelHover(false)"
+          [attr.aria-pressed]="peeled"
+          [attr.aria-label]="'skills.peelHint' | translate"
+        >
+          <img
+            class="skills__hint-img"
+            [src]="peelSrc"
+            alt=""
+            width="160"
+            height="160"
+          />
+        </button>
+      }
     </div>
 
-    <ul class="skills__grid" [class.skills__grid--revealed]="peeled">
+    <ul class="skills__grid" [class.skills__grid--revealed]="peelEnabled && peeled">
       @for (skill of skills; track skill) {
         <li>
           <div class="skills__tile">
             <img
               class="skills__icon"
-              [class.skills__icon--grey]="!isColored(skill) && !peeled"
+              [class.skills__icon--grey]="!isColored(skill)"
               [src]="'/img/' + skill + '.svg'"
               [alt]="skill"
             />
