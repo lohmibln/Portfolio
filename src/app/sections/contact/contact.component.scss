@@ -231,18 +231,19 @@
 
 @media (max-width: 899px) {
   .contact__seal {
-    width: 4.5rem;
-    height: 4.5rem;
-    top: -0.25rem;
-    right: 0.25rem;
+    width: 4rem;
+    height: 4rem;
+    top: 0;
+    right: 0.5rem;
   }
 
   .contact__seal-mark {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .contact__form {
-    padding-top: 3.25rem;
+    padding-top: 3.5rem;
+    overflow: visible;
   }
 
   .contact__arrow {
@@ -257,27 +258,28 @@
   }
 
   .contact__intro .section-title {
-    font-size: clamp(1.35rem, 7.2vw, 1.85rem);
-    line-height: 1.15;
+    font-size: clamp(1.25rem, 6.5vw, 1.7rem);
+    line-height: 1.2;
   }
 
   .contact__intro .section-text {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     line-height: 1.5;
   }
 
+  /* Keep seal fully inside 320px even while spinning (AABB grows ~√2) */
   .contact__seal {
-    width: 3.75rem;
-    height: 3.75rem;
-    right: 0;
+    width: 3.25rem;
+    height: 3.25rem;
+    right: 0.75rem;
   }
 
   .contact__seal-mark {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .contact__arrow {
-    width: min(100%, 9.5rem);
+    width: min(92%, 9rem);
     margin-top: 0.25rem;
   }
 }
