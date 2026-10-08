@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 64" aria-hidden="true">
+  <!-- One continuous hand-drawn filled arrow: curved shaft + solid head -->
+  <path
+    fill="#3B7CFF"
+    d="
+      M 12 44
+      C 28 22, 48 12, 72 14
+      C 96 16, 118 26, 130 30
+      L 118 14
+      L 162 32
+      L 120 50
+      L 130 34
+      C 116 30, 94 20, 70 18
+      C 48 16, 30 24, 16 40
+      Z
+    "
+  />
+</svg>
