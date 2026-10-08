@@ -27,6 +27,17 @@ export class HeroComponent {
   /** Which letter is lit: `title:3` or `accent:2` */
   readonly litKey = signal<string | null>(null);
 
+  /** Sticky color on touch devices (hover alone is unreliable). */
+  readonly polaroidColor = signal(false);
+
+  togglePolaroid(): void {
+    // Desktop hover already handles color; sticky-toggle for touch.
+    if (typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      return;
+    }
+    this.polaroidColor.update((v) => !v);
+  }
+
   lit(line: 'title' | 'accent', index: number): void {
     this.litKey.set(`${line}:${index}`);
   }
@@ -43,7 +54,7 @@ export class HeroComponent {
     return letter === '|';
   }
 
-  /** Marco-style: flip case on hover (a→A / A→a), same font */
+  /** Figma-style: flip case on hover (a→A / A→a), same font */
   displayLetter(letter: string, line: 'title' | 'accent', index: number): string {
     if (this.isBreak(letter) || !this.isLit(line, index) || !/[A-Za-zÄÖÜäöüß]/.test(letter)) {
       return letter;

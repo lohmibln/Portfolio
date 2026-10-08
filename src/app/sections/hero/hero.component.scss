@@ -54,30 +54,22 @@
 }
 
 .hero__hello {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
   margin-bottom: 0.35rem;
-  /* room for the hand that sits on top of the pill */
-  padding-top: 1.35rem;
 }
 
 .hero__hello-btn {
-  position: relative;
-  z-index: 1;
   display: inline-grid;
   place-items: center;
-  min-width: 8.25rem;
-  min-height: 2.1rem;
-  padding: 0.35rem 1.15rem;
-  border: 1.5px solid rgba(255, 255, 255, 0.9);
-  border-radius: 999px;
+  padding: 12px 24px;
+  border: 1px solid #f8f9fa;
+  border-radius: 100px;
   background: transparent;
-  color: #fff;
-  font-size: 0.95rem;
+  color: #f8f9fa;
+  font-size: 18px;
   font-weight: 500;
   overflow: hidden;
-  transition: background-color 120ms ease, color 120ms ease, transform 125ms ease;
+  cursor: pointer;
+  transition: all 125ms ease-in-out;
 }
 
 .hero__hello-btn-default,
@@ -92,31 +84,11 @@
   transform: translateY(8px);
 }
 
-.hero__hello-hand {
-  position: absolute;
-  right: 0.65rem;
-  top: 0.15rem;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-  color: #f8f9fa;
-  opacity: 0;
-  pointer-events: none;
-  transform-origin: 50% 85%;
-  transform: translateY(18px) rotate(-110deg) scale(0.55);
-}
-
-.hero__hello-hand svg {
-  display: block;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
-}
-
 .hero__hello:hover .hero__hello-btn,
 .hero__hello:focus-within .hero__hello-btn {
-  background: #3355ff;
-  border-color: #fff;
-  color: #fff;
-  transform: scale(1.06);
+  background-color: #35f;
+  border-color: #f8f9fa;
+  color: #f8f9fa;
 }
 
 .hero__hello:hover .hero__hello-btn-default,
@@ -129,29 +101,6 @@
 .hero__hello:focus-within .hero__hello-btn-hover {
   opacity: 1;
   transform: translateY(0);
-}
-
-.hero__hello:hover .hero__hello-hand,
-.hero__hello:focus-within .hero__hello-hand {
-  animation: hero-hand-roll 0.55s cubic-bezier(0.22, 1.2, 0.36, 1) forwards;
-}
-
-@keyframes hero-hand-roll {
-  0% {
-    opacity: 0;
-    transform: translateY(18px) rotate(-110deg) scale(0.55);
-  }
-  55% {
-    opacity: 1;
-    transform: translateY(-2px) rotate(18deg) scale(1.08);
-  }
-  78% {
-    transform: translateY(1px) rotate(-8deg) scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) rotate(0deg) scale(1);
-  }
 }
 
 .hero__row {
@@ -211,24 +160,25 @@
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.48);
   transform: rotate(6deg);
   transform-origin: center center;
+  /* Always B&W by default — including mobile. */
+  filter: grayscale(100%);
   transition: transform 125ms ease-in-out, filter 125ms ease-in-out;
   cursor: pointer;
+  outline: none;
+}
+
+.hero__polaroid:active,
+.hero__polaroid.is-color {
+  filter: grayscale(0%);
+  transform: rotate(4deg) scale(1.02);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .hero__polaroid {
-    filter: grayscale(100%);
-  }
-
   .hero__polaroid:hover,
-  .hero__polaroid:focus-within {
+  .hero__polaroid:focus-visible {
     filter: grayscale(0%);
+    transform: rotate(4deg) scale(1.02);
   }
-}
-
-.hero__polaroid:hover,
-.hero__polaroid:focus-within {
-  transform: rotate(4deg) scale(1.02);
 }
 
 .hero__photo-frame {
@@ -258,14 +208,26 @@
   display: none;
 }
 
-.hero__polaroid:hover .hero__polaroid-smile--default,
-.hero__polaroid:focus-within .hero__polaroid-smile--default {
+.hero__polaroid:active .hero__polaroid-smile--default,
+.hero__polaroid.is-color .hero__polaroid-smile--default {
   display: none;
 }
 
-.hero__polaroid:hover .hero__polaroid-smile--hover,
-.hero__polaroid:focus-within .hero__polaroid-smile--hover {
+.hero__polaroid:active .hero__polaroid-smile--hover,
+.hero__polaroid.is-color .hero__polaroid-smile--hover {
   display: inline;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero__polaroid:hover .hero__polaroid-smile--default,
+  .hero__polaroid:focus-visible .hero__polaroid-smile--default {
+    display: none;
+  }
+
+  .hero__polaroid:hover .hero__polaroid-smile--hover,
+  .hero__polaroid:focus-visible .hero__polaroid-smile--hover {
+    display: inline;
+  }
 }
 
 /* Second line fully BELOW the polaroid row — right aligned like DEVELOPER */
@@ -368,8 +330,16 @@
     transform: rotate(3deg);
   }
 
-  .hero__polaroid:hover {
+  .hero__polaroid:active,
+  .hero__polaroid.is-color {
     transform: rotate(2deg) scale(1.02);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .hero__polaroid:hover,
+    .hero__polaroid:focus-visible {
+      transform: rotate(2deg) scale(1.02);
+    }
   }
 
   .hero__title-top,
@@ -412,20 +382,6 @@
   .hero__social a {
     width: 2.15rem;
     height: 2.15rem;
-  }
-
-  .hero__hello {
-    padding-top: 1.1rem;
-  }
-
-  .hero__hello-hand {
-    width: 2.35rem;
-    right: 0.35rem;
-  }
-
-  .hero__hello-hand svg {
-    width: 2.35rem;
-    height: 2.35rem;
   }
 }
 

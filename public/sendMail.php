@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact form endpoint (Marco / DA style).
+ * Contact form endpoint (Figma / DA style).
  * Expects POST body as JSON text/plain:
  * {"name":"...","email":"...","message":"..."}
  */
