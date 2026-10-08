@@ -16,3 +16,9 @@
   --section-pad-y: 5rem;
   --section-pad-x: 1.5rem;
 }
+
+@media (max-width: 380px) {
+  :root {
+    --section-pad-x: 1rem;
+  }
+}
