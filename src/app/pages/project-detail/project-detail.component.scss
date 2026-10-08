@@ -60,6 +60,8 @@
 .detail__title-wrap {
   position: relative;
   width: fit-content;
+  /* reserve underline space so copy never shifts / bounces */
+  padding-bottom: 1.15rem;
 }
 
 .detail__text h1 {
@@ -72,10 +74,14 @@
 }
 
 .detail__underline-wrap {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   width: 9.5rem;
   overflow: hidden;
-  margin-top: 0.15rem;
-  animation: detail-underline-loop 3.2s ease-in-out infinite;
+  pointer-events: none;
+  /* one-shot draw only — no loop, no layout bounce */
+  animation: detail-underline-in 0.9s ease both;
 }
 
 .detail__underline-wrap img {
@@ -84,18 +90,12 @@
   height: auto;
 }
 
-@keyframes detail-underline-loop {
-  0%,
-  8% {
+@keyframes detail-underline-in {
+  from {
     width: 0;
   }
-  35%,
-  58% {
+  to {
     width: 9.5rem;
-  }
-  85%,
-  100% {
-    width: 0;
   }
 }
 
