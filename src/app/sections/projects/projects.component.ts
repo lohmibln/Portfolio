@@ -22,8 +22,18 @@ interface ProjectCard {
   styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent {
-  /** Order: featured Sharkie, then Pokedex, Join */
+  /** Order: biggest first — Join, Sharkie, Pokédex */
   readonly allProjects: ProjectCard[] = [
+    {
+      id: 'join',
+      nameKey: 'projects.join.name',
+      descriptionKey: 'projects.join.description',
+      image: '/img/projects/join.png',
+      githubUrl: null,
+      liveUrl: null,
+      comingSoon: true,
+      featured: true,
+    },
     {
       id: 'sharkie',
       nameKey: 'projects.sharkie.name',
@@ -31,7 +41,6 @@ export class ProjectsComponent {
       image: '/img/projects/shot-sharkie.png',
       githubUrl: 'https://github.com/lohmibln/Sharky',
       liveUrl: 'https://sharkie.lucas-lohmann.de',
-      featured: true,
       float: true,
     },
     {
@@ -41,15 +50,6 @@ export class ProjectsComponent {
       image: '/img/projects/shot-pokedex.png',
       githubUrl: 'https://github.com/lohmibln/Pokedex',
       liveUrl: 'https://pokedex.lucas-lohmann.de',
-    },
-    {
-      id: 'join',
-      nameKey: 'projects.join.name',
-      descriptionKey: 'projects.join.description',
-      image: '/img/projects/join.png',
-      githubUrl: null,
-      liveUrl: null,
-      comingSoon: true,
     },
   ];
 }

@@ -3,9 +3,18 @@
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   z-index: 30;
   background: transparent;
   color: #fff;
+}
+
+.header--on-light {
+  position: fixed;
+  background: rgba(14, 14, 14, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .header__inner {

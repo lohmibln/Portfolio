@@ -16,7 +16,7 @@ export class ProjectDetailComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly sectionNav = inject(SectionNavService);
 
-  private readonly order = ['sharkie', 'pokedex', 'join'] as const;
+  private readonly order = ['join', 'sharkie', 'pokedex'] as const;
 
   readonly projectId = toSignal(
     this.route.paramMap.pipe(map((params) => params.get('id') ?? 'sharkie')),
@@ -47,7 +47,6 @@ export class ProjectDetailComponent {
       githubUrl: 'https://github.com/lohmibln/Sharky',
       liveUrl: 'https://sharkie.lucas-lohmann.de',
       image: '/img/projects/shot-sharkie.png',
-      featured: true,
     },
     pokedex: {
       nameKey: 'projects.pokedex.name',
@@ -69,6 +68,7 @@ export class ProjectDetailComponent {
       liveUrl: null,
       image: '/img/projects/join.png',
       comingSoon: true,
+      featured: true,
     },
   };
 

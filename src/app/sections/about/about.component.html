@@ -49,15 +49,17 @@
 
     <div class="about__content">
       <p class="about__eyebrow">{{ 'about.eyebrow' | translate }}</p>
-      <h2 class="about__title">{{ 'about.title' | translate }}</h2>
-      <img
-        class="about__underline"
-        src="/img/lines/about-underline.png"
-        alt=""
-        width="320"
-        height="40"
-        aria-hidden="true"
-      />
+      <div class="about__title-wrap">
+        <h2 class="about__title">{{ 'about.title' | translate }}</h2>
+        <img
+          class="about__underline"
+          src="/img/lines/about-underline.png"
+          alt=""
+          width="320"
+          height="40"
+          aria-hidden="true"
+        />
+      </div>
       <div class="about__copy">
         <p>{{ 'about.text' | translate }}</p>
         <p>{{ 'about.collab' | translate }}</p>

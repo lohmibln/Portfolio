@@ -10,6 +10,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
+  overflow-x: clip;
 }
 
 body {
@@ -18,6 +19,7 @@ body {
   color: var(--color-text-dark);
   background: var(--color-bg-light);
   line-height: 1.5;
+  overflow-x: clip;
 }
 
 img {
@@ -155,7 +157,8 @@ section {
 
 .torn-edge--bottom {
   bottom: -1px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath fill='%23f4f4f4' d='M0 6 L8 2 L18 3 L32 12 L40 36 L70 22 L102 19 L120 20 L159 8 L170 17 L186 31 L198 23 L215 36 L224 35 L234 26 L245 21 L264 42 L304 19 L326 44 L340 41 L358 15 L379 20 L422 45 L460 40 L474 47 L490 26 L535 16 L561 40 L586 26 L631 31 L678 17 L696 34 L706 37 L719 6 L766 17 L795 30 L832 19 L859 33 L865 26 L884 21 L921 9 L944 18 L996 33 L1024 36 L1034 38 L1053 28 L1062 20 L1080 21 L1099 12 L1106 3 L1124 22 L1146 32 L1177 27 L1184 30 L1203 15 L1248 7 L1272 20 L1296 22 L1322 31 L1336 21 L1346 45 L1379 19 L1422 28 L1436 33 L1440 33 V64 H0 Z'/%3E%3C/svg%3E");
+  /* Match .about / light sections (#fff) — avoid grey→white hard edge */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0 6 L8 2 L18 3 L32 12 L40 36 L70 22 L102 19 L120 20 L159 8 L170 17 L186 31 L198 23 L215 36 L224 35 L234 26 L245 21 L264 42 L304 19 L326 44 L340 41 L358 15 L379 20 L422 45 L460 40 L474 47 L490 26 L535 16 L561 40 L586 26 L631 31 L678 17 L696 34 L706 37 L719 6 L766 17 L795 30 L832 19 L859 33 L865 26 L884 21 L921 9 L944 18 L996 33 L1024 36 L1034 38 L1053 28 L1062 20 L1080 21 L1099 12 L1106 3 L1124 22 L1146 32 L1177 27 L1184 30 L1203 15 L1248 7 L1272 20 L1296 22 L1322 31 L1336 21 L1346 45 L1379 19 L1422 28 L1436 33 L1440 33 V64 H0 Z'/%3E%3C/svg%3E");
 }
 
 .torn-edge--bottom-dark {

@@ -1,4 +1,8 @@
-<header class="header" [class.header--open]="isMenuOpen()">
+<header
+  class="header"
+  [class.header--open]="isMenuOpen()"
+  [class.header--on-light]="onLightPage()"
+>
   <div class="container header__inner">
     <a class="header__logo" routerLink="/" aria-label="Home" (click)="closeMenu()">
       <img src="/img/logo-ll.svg" alt="" width="46" height="39" />

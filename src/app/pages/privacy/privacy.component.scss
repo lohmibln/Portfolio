@@ -1,16 +1,21 @@
 .legal {
-  padding-block: 3rem;
+  padding-block: calc(var(--header-height) + 2rem) 3rem;
   min-height: 60vh;
   max-width: 48rem;
+  overflow-x: clip;
 }
 
 .legal h1 {
   margin-top: 0;
+  font-size: clamp(1.55rem, 5vw, 2.35rem);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
 }
 
 .legal h2 {
   margin: 2rem 0 0.75rem;
-  font-size: 1.25rem;
+  font-size: clamp(1.05rem, 3.5vw, 1.25rem);
+  overflow-wrap: anywhere;
 }
 
 .legal h3 {
