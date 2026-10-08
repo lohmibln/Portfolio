@@ -314,19 +314,27 @@
     padding-bottom: 7.5rem;
   }
 
+  /* Stacked / tablet (~600–900): center like Projects (even side margins) */
   .hero__compose {
-    /* keep title/CTA clear of the social column */
-    padding-left: 3.35rem;
+    align-items: center;
+    /* equal inset — left also clears the absolute social column */
+    padding-inline: 3.35rem;
+    text-align: center;
   }
 
   .hero__row {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+  }
+
+  .hero__title-top {
+    padding-right: 0;
+    text-align: center;
   }
 
   .hero__polaroid {
     width: min(57vw, 220px);
-    margin-left: -0.5rem;
+    margin-left: 0;
     transform: rotate(3deg);
   }
 
@@ -354,12 +362,13 @@
   }
 
   .hero__title-bottom {
-    text-align: left;
+    text-align: center;
     width: 100%;
+    padding-right: 0;
   }
 
   .hero__cta {
-    align-self: flex-start;
+    align-self: center;
     margin-right: 0;
   }
 
@@ -371,7 +380,7 @@
 
 @media (max-width: 420px) {
   .hero__compose {
-    padding-left: 3rem;
+    padding-inline: 3rem;
   }
 
   .hero__title-top,

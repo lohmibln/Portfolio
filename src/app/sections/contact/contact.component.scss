@@ -26,8 +26,9 @@
   display: grid;
   gap: 2.75rem;
   min-width: 0;
-  width: 100%;
-  max-width: 100%;
+  /* Match About / hero content column — was stretching to full --max-width (1440px) */
+  width: min(100%, 1100px);
+  margin-inline: auto;
 }
 
 .contact__intro {

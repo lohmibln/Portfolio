@@ -6,6 +6,7 @@
   background-color: #0e1013;
   background-image: url('/img/textures/notebook-paper.jpg');
   background-repeat: no-repeat;
+  /* Always cover — shrinking the paper left white gaps + unreadable white text */
   background-size: cover;
   background-position: left center;
   color: #f8f9fa;
@@ -27,18 +28,22 @@
   align-items: center;
   gap: 0.5rem;
   padding-left: 1rem;
-  color: #0e1013;
+  color: #f8f9fa;
   font-weight: 700;
+  mix-blend-mode: difference;
   transition: color 125ms ease;
 }
 
 .detail__back img {
   width: 1.5rem;
   height: 1.5rem;
+  /* Keep arrow readable on both paper + dark areas */
+  mix-blend-mode: difference;
 }
 
 .detail__back:hover {
   color: #f87a55;
+  mix-blend-mode: normal;
 }
 
 .detail__row {
@@ -230,8 +235,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #0e1013;
+  color: #f8f9fa;
   font-weight: 700;
+  mix-blend-mode: difference;
   transition: color 125ms ease;
 }
 
@@ -239,17 +245,18 @@
   width: 1.5rem;
   height: 1.5rem;
   transform: scaleX(-1);
+  mix-blend-mode: difference;
 }
 
 .detail__next:hover {
   color: #f87a55;
+  mix-blend-mode: normal;
 }
 
 @media (max-width: 999px) {
   .detail {
     min-height: auto;
-    background-position: top left;
-    background-size: 140% auto;
+    background-position: center top;
     padding-block: calc(var(--header-height) + 1rem) 3rem;
   }
 
@@ -270,17 +277,5 @@
   .detail__image {
     height: auto;
     aspect-ratio: 16 / 10;
-  }
-
-  .detail__back {
-    color: #f8f9fa;
-  }
-
-  .detail__text h1,
-  .detail__block h2,
-  .detail__block p,
-  .detail__duration,
-  .detail__stack li {
-    mix-blend-mode: normal;
   }
 }
