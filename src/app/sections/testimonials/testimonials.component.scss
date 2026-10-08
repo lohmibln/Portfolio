@@ -28,8 +28,9 @@
 }
 
 .testimonials__arrow {
-  width: 9.375rem;
+  width: clamp(4.5rem, 18vw, 9.375rem);
   height: auto;
+  flex-shrink: 0;
 }
 
 .testimonials__eyebrow {
@@ -42,12 +43,17 @@
 
 .testimonials__title {
   margin: 0;
-  font-size: clamp(1.75rem, 5.5vw, 4rem);
-  line-height: 1.05;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: clamp(1.85rem, 6vw, 4rem);
+  line-height: 0.98;
   font-weight: 800;
-  overflow-wrap: anywhere;
-  word-break: normal;
   max-width: 100%;
+}
+
+.testimonials__title-line {
+  display: block;
 }
 
 .testimonials__fan {
@@ -187,6 +193,10 @@
     align-items: flex-start;
     text-align: left;
     margin-bottom: 2rem;
+  }
+
+  .testimonials__title {
+    align-items: flex-start;
   }
 
   .testimonials__fan {

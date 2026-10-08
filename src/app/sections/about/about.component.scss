@@ -47,6 +47,7 @@
   font-weight: 700;
   line-height: 1.2;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .tag__icon {
@@ -204,5 +205,30 @@
 
   .about__more {
     justify-self: start;
+  }
+}
+
+@media (max-width: 420px) {
+  .tag--blue,
+  .tag--orange {
+    margin-left: 0.35rem;
+  }
+
+  .tag__inner {
+    gap: 0.45rem;
+    padding: 0.85rem 1.35rem 0.85rem 1.65rem;
+    font-size: 0.82rem;
+    white-space: normal;
+  }
+
+  .tag--blue .tag__inner,
+  .tag--orange .tag__inner {
+    padding-left: 1.85rem;
+    padding-right: 1.35rem;
+  }
+
+  .tag__icon {
+    width: 1.35rem;
+    height: 1.35rem;
   }
 }

@@ -8,20 +8,23 @@
         <span class="hero__hello-btn-hover">{{ 'hero.helloBtnHover' | translate }}</span>
       </button>
 
-      <h1 class="visually-hidden">
-        {{ 'hero.title' | translate }} {{ 'hero.titleAccent' | translate }}
-      </h1>
+      <h1 class="visually-hidden">{{ titlePlain() }} {{ accentPlain() }}</h1>
 
       <div class="hero__row">
         <p class="hero__title-top" aria-hidden="true">
           @for (letter of titleLetters(); track $index) {
-            <span
-              class="hero__letter"
-              [class.hero__letter--lit]="isLit('title', $index)"
-              (mouseenter)="lit('title', $index)"
-              (mouseleave)="clearLit()"
-              >{{ displayLetter(letter, 'title', $index) }}</span
-            >
+            @if (isBreak(letter)) {
+              <wbr class="hero__wbr" />
+              <span class="hero__break" aria-hidden="true"></span>
+            } @else {
+              <span
+                class="hero__letter"
+                [class.hero__letter--lit]="isLit('title', $index)"
+                (mouseenter)="lit('title', $index)"
+                (mouseleave)="clearLit()"
+                >{{ displayLetter(letter, 'title', $index) }}</span
+              >
+            }
           }
         </p>
         <figure class="hero__polaroid">
@@ -40,13 +43,18 @@
 
       <p class="hero__title-bottom" aria-hidden="true">
         @for (letter of accentLetters(); track $index) {
-          <span
-            class="hero__letter"
-            [class.hero__letter--lit]="isLit('accent', $index)"
-            (mouseenter)="lit('accent', $index)"
-            (mouseleave)="clearLit()"
-            >{{ displayLetter(letter, 'accent', $index) }}</span
-          >
+          @if (isBreak(letter)) {
+            <wbr class="hero__wbr" />
+            <span class="hero__break" aria-hidden="true"></span>
+          } @else {
+            <span
+              class="hero__letter"
+              [class.hero__letter--lit]="isLit('accent', $index)"
+              (mouseenter)="lit('accent', $index)"
+              (mouseleave)="clearLit()"
+              >{{ displayLetter(letter, 'accent', $index) }}</span
+            >
+          }
         }
       </p>
 

@@ -11,9 +11,18 @@ import { TranslationService } from '../../core/translation/translation.service';
 export class HeroComponent {
   private readonly translation = inject(TranslationService);
 
-  /** Split titles into letters for Marco-style hover highlight */
+  /**
+   * `|` in translations = soft break (space on desktop, line break on narrow mobile).
+   * Letter hover skips the break marker.
+   */
   readonly titleLetters = computed(() => [...this.translation.translate('hero.title')]);
   readonly accentLetters = computed(() => [...this.translation.translate('hero.titleAccent')]);
+
+  /** Accessible full words without break markers */
+  readonly titlePlain = computed(() => this.translation.translate('hero.title').replaceAll('|', ''));
+  readonly accentPlain = computed(() =>
+    this.translation.translate('hero.titleAccent').replaceAll('|', '')
+  );
 
   /** Which letter is lit: `title:3` or `accent:2` */
   readonly litKey = signal<string | null>(null);
@@ -30,9 +39,13 @@ export class HeroComponent {
     return this.litKey() === `${line}:${index}`;
   }
 
+  isBreak(letter: string): boolean {
+    return letter === '|';
+  }
+
   /** Marco-style: flip case on hover (a→A / A→a), same font */
   displayLetter(letter: string, line: 'title' | 'accent', index: number): string {
-    if (!this.isLit(line, index) || !/[A-Za-zÄÖÜäöüß]/.test(letter)) {
+    if (this.isBreak(letter) || !this.isLit(line, index) || !/[A-Za-zÄÖÜäöüß]/.test(letter)) {
       return letter;
     }
     return letter === letter.toUpperCase() ? letter.toLowerCase() : letter.toUpperCase();
